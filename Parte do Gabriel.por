@@ -87,13 +87,14 @@ sai : Dados Atualisaddos
 					
 			}enquanto(E =='N')//Se Usuario Ser não for o Kart desejado para atualiza
 
+			//Vai Por Porgrama de atualisaOsDados
 			se(E =='S'){
 				
 				AtualisaOsDados(V,M)
 				
 				
 				}
-				
+			//Senao (Se for o E de Sai )voutra para o menu
 			senao{
 				
 				limpa()
@@ -159,7 +160,7 @@ sai : Dados Atualisaddos
 			
 				}
 
-		}enquanto(Escolha!='E')
+		}enquanto(Escolha!='E')//Para o Porgra fica repetido ate o usuario quise sai
 
 		
 		limpa()
