@@ -60,75 +60,78 @@ sai : Dados Atualisaddos
 		inteiro I
 		
 		//Para escolhas 
-		caracter E
+		caracter R
 
-		//Se Usuario Ser não for o Kart desejado para atualiza
+		
 		faca{
-			
-			//Para cado a pessoa digita uma numero não desejado 
+			//Se Usuario Ser não for o Kart desejado para atualiza
 			faca{
+			
+				//Para cado a pessoa digita uma numero não desejado 
+				faca{
 				
-				//Para Mostra o Valro o Modelo de todos dos Kart
-				para(I=0 ; I<15 ;I++){
+					//Para Mostra o Valro o Modelo de todos dos Kart
+					para(I=0 ; I<15 ;I++){
 					
-					//*I+1* por comesa em 0 é não em 1
+						//*I+1* por comesa em 0 é não em 1
 					
-					escreva("\n\nModelo do ", I+1 ,"º Kart : " ,M[I])
+						escreva("\n\nModelo do ", I+1 ,"º Kart : " ,M[I])
 					
-					escreva("\n\nValor do ", I+1 ,"º Kart :",V[I])
+						escreva("\n\nValor do ", I+1 ,"º Kart :",V[I])
 
-					}
+						}
 					
-				//Para ler qual Kart que
-				escreva("\nQual Kart goataria de atualisa os Dados : ")
-				leia(I)
+					//Para ler qual Kart que
+					escreva("\nQual Kart goataria de atualisa os Dados : ")
+					leia(I)
 				
-				//Por comesa em o e não em 1
-				I--
+					//Por comesa em o e não em 1
+					I--
 				
-				//Ser for digitado valor um valido
-				se(I<0 ou I>14){
+					//Ser for digitado valor um valido
+					se(I<0 ou I>14){
 				
-					limpa()
-					escreva("Numero Imvalido\n\n")
+						limpa()
+						escreva("Numero Imvalido\n\n")
 				
 					}
 		
 			}enquanto(I<0 ou I>14)//Para cado a pessoa digita uma numero não desejado 
 
-			//Fica repetido ate o usuaruo digita um valor valido
-			faca{
+				//Fica repetido ate o usuaruo digita um valor valido
+				faca{
 				
-				limpa()
-				//Mostra o modelo novamente para o usuario
-				escreva("Modelo : " , M[I])
-				escreva("\n\nValro : " , V[I])
-				
-				//Para confima 
-				escreva("\n\nEste o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
-				leia(E)
-
-				//Ser fo digitado um valor não desejado
-				se(E!='S' e E!='N' e E!='E'){
-					
 					limpa()
-					escreva("\nLetra limvalida")
+					//Mostra o modelo novamente para o usuario
+					escreva("Modelo : " , M[I])
+					escreva("\n\nValro : " , V[I])
+				
+					//Para confima 
+					escreva("\n\nEste o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
+					leia(R)
+
+					//Ser fo digitado um valor não desejado
+					se(R!='S' e R!='N' e R!='E'){
+					
+						limpa()
+						escreva("\nLetra limvalida")
 			
-					}
+						}
 			
-				}enquanto(E!='S' e E!='N'e E!='E')//Fica repetido ate o usuaruo digita um valor valido
+					}enquanto(R!='S' e R!='N'e R!='E')//Fica repetido ate o usuaruo digita um valor valido
 				
 				limpa()
 					
-			}enquanto(E =='N')//Se Usuario Ser não for o Kart desejado para atualiza
-
+				}enquanto(R =='N')//Se Usuario Ser não for o Kart desejado para atualiza
+		
 			//Vai Por Porgrama de atualisaOsDados
-			se(E =='S'){
+			se(R =='S'){
 				
 				AtualisaOsDados(V,M,I)
 				
 				
 				}
+			
 			//Senao (Se for o E de Sai )voutra para o menu
 			senao{
 				
@@ -137,7 +140,7 @@ sai : Dados Atualisaddos
 				
 				}
 
-
+			}enquanto(R!='E')
 			
 		}
 
