@@ -10,10 +10,45 @@ sai : Dados Atualisaddos
 */
 
 	//Esta funcao de ser subitituida pela parte que comtra quantas vas cada kart foi alugrado e o seu valor do alugre
-	funcao AtualisaOsDados(real V[] ,cadeia M[]){
+	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I){
 		
+		caracter R
 		
+		limpa()
+		faca{
+			faca{
+				
+				
+				escreva("Modelo:",M[I])
+				escreva("\n\nValor :",V[I])
+			
+				escreva("\nQual dos daod que altera\n(M)Modelo (V)Valro (E)Sai\n:")
+				leia(R)
+				
+				se(R!='M' e R!='V' e R!='E'){
+					limpa()
+					escreva("Letra invalida\n\n")
+					
+					}
 		
+				}enquanto(R!='M' e R!='V' e R!='E')
+			
+			se(R=='M'){		
+				
+				escreva("\nQual é modelo atualizado:")
+				leia(M[I])
+				
+				}
+				
+			se(R=='V'){		
+				
+				escreva("\nQual é novo valor:")
+				leia(V[I])
+				escreva(V[I])
+				
+				}
+			
+			}enquanto(R!='E')
 		}
 
 
@@ -90,7 +125,7 @@ sai : Dados Atualisaddos
 			//Vai Por Porgrama de atualisaOsDados
 			se(E =='S'){
 				
-				AtualisaOsDados(V,M)
+				AtualisaOsDados(V,M,I)
 				
 				
 				}
