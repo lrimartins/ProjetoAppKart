@@ -12,27 +12,39 @@ sai : Dados Atualisaddos
 	//Esta funcao de ser subitituida pela parte que comtra quantas vas cada kart foi alugrado e o seu valor do alugre
 	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I){
 		
-		caracter R
+		//Decaração de varial
 		
+		//Varial de Repostra
+		caracter R
+
+		//Limpa a tela ante de exetuta o porgama
 		limpa()
+		
+		//So sai ser o usuario escolhe sai
 		faca{
+			
+			//Ser a repostra for errada
 			faca{
 				
-				
-				escreva("Modelo:",M[I])
-				escreva("\n\nValor :",V[I])
-			
+				//Modtra os modelo e valor do Kart
+				escreva("Modelo do Kart",I+1,":",M[I])
+				escreva("\n\nValor do Kart",I+1," :",V[I])
+
+				//Para o usuario  muda os dado do Kart
 				escreva("\nQual dos daod que altera\n(M)Modelo (V)Valro (E)Sai\n:")
 				leia(R)
 				
+				//Ser a Respostra for imvalida
 				se(R!='M' e R!='V' e R!='E'){
+					
 					limpa()
 					escreva("Letra invalida\n\n")
 					
 					}
 		
-				}enquanto(R!='M' e R!='V' e R!='E')
-			
+				}enquanto(R!='M' e R!='V' e R!='E')//Ser a repostra for errada
+
+			//Ser for para atualiza o Modelo
 			se(R=='M'){		
 				
 				escreva("\nQual é modelo atualizado:")
@@ -40,6 +52,7 @@ sai : Dados Atualisaddos
 				
 				}
 				
+			//Ser por para atualiza o valor do Kart
 			se(R=='V'){		
 				
 				escreva("\nQual é novo valor:")
@@ -48,7 +61,8 @@ sai : Dados Atualisaddos
 				
 				}
 			
-			}enquanto(R!='E')
+			}enquanto(R!='E')//So sai ser o usuario escolhe sai
+			
 		}
 
 
