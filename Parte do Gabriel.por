@@ -190,69 +190,89 @@ Saida:O carte estra alugrado
 			
 		}
 		
-	funcao AlugraKart(real V[],cadeia M[],caracter H[]){
+	funcao AlugraKart(real V[],cadeia M[],caracter A[]){
 		
-		inteiro I
+			inteiro I,C=0
+			caracter R
 
-		caracter R
-		
-		limpa()
-		faca{
-			para(I=0 ; I<15 ; I++){
+			escreva("\nLista como Kart Livres")
 
+			//Mostra na tela os Kart livres
+			para(I=0;I<15;I++){
 				
-				//Modelo TesteE deve ser tocado por que for sibolisa espaso livre usado livre
-				se(H[I]=='L' e M[I]!="----------" ){
-					
-					escreva("\n\nModelo do ",I+1,"º Kart:",M[I])
-					escreva("\n\nValor do ",I+1,"º Kart:",V[I])
-					
-					}
-					
-				}		
-			
-				escreva("\n\nQual Kart gotaria de alugra hoje?(16)Sai")
-				leia(I)
-				I--
-				
-			se(I!=15){
-				se(I<0 ou I>15  ou H[I]!='L' ou M[I]=="----------" )
-				{
-					limpa()
-					escreva("\nNumero invalido \n")
-				
-				
-					}
-
+					se(A[I]=='L'){
+						
+						escreva("\nModelo ",I+1,"º :",M[I])
+						escreva("\nValor do ",I+1,"º :",V[I],"$")
+						escreva("\nEstado :",A[I])
+						C++
+						
+						}
 				}
-				
-			}enquanto(I<0 ou I>14 ou H[I]!='L' ou M[I]=="----------" )
 
-			limpa()
-			
+			se(C!=0){
+				
+				faca{
+					
+					//Para usuario escolhe o Kart
+					escreva("\nQual Kart goataria de alugra(Digite o numero):")
+					leia(I)
+					I--
+					
+					//Ser digita um numero invalido
+					se(I<0 ou I>14 ou A[I]=='A'){
+						
+						escreva("\nNumero imvalido")
+						
+					}
+				
+			}enquanto(I<0 ou I>14 ou A[I]=='A')
+
+			//Mostra os dados do Kart
+			escreva("\nModelo ",I+1,"º :",M[I])
+			escreva("\nValor do ",I+1,"º :",V[I],"$")
+			escreva("\nEstado :",A[I])
+
+
 			faca{
-				escreva("\nEste e o Kart desejado?\n\n")
-			
-				escreva("\nModelo :",M[I])
-			
-				escreva("\nValro :",V[I],"$")	
-			
-				escreva("\n\n(S)Sim (N)não (E)Sai \n:")	
+				//So para confima
+				escreva("\nE este Kart ?\n(S)sim\n(N)não\n(E)Sai\n:")
 				leia(R)
 
-				se(R!='S' e R!='N' e R!='E'){
+				//Se sim muda os estado de livre para alugrado
+				se(R=='S'){
+				
+					A[I]='A'
+			
+					}
 					
+				//senao a função reinisia a função
+				senao se(R=='N'){
+
 					limpa()
-					escreva("\nLetra invalida")
+					AlugraKart(V,M,A)
+					
+					}
+					//Ser for digitado um letra que não e valida
+					senao se(R!='S' e R!='N' e R!='E' ){
+				
+					escreva("\nletra invalida")
+			
+					}
+
+				
+				}enquanto(R!='S' e R!='N' e R!='E')
+			}
+			
+			//Se não over kart livre
+			senao{
+				
+				limpa()
+				escreva("\nTodos os Kart foi Locado\n")
 				
 				}
 				
-			}enquanto(R!='S' e R!='N' e R!='E')
-
-			
-		}	
-		
-
+			}
 	
 	funcao inicio(){
 		//Decaração de variavel
