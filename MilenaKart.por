@@ -26,7 +26,7 @@ programa {
 
     escreva("O modelo do kart é :\n", modelokart)
 		escreva("\nCor do kart é : ", corkart)
-		escreva("\nO valor da,locação é: ", valordeLocacao)
+		escreva("\nO valor da locação é: ", valordeLocacao)
 		escreva("\nQuantidade de vez que o kart foi locado é : ", qntlocacao)
 		escreva("\nStatus do kart: ", status)
 
