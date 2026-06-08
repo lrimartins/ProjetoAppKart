@@ -73,7 +73,7 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
     			escreva("Gotaria de continua ?(S)sim(N)não")
     			leia(R)
     			
-    			se(R!='S' e R!='F'){
+    			se(R!='S' e R!='N'){
     				
     				limpa()
     				
@@ -81,10 +81,24 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
     			
     			}
     		
-  		}enquanto(R!='S' e R!='F')
+  		}enquanto(R!='S' e R!='N')
   			
     }enquanto(R=='S')    
-
-    
+lista(Status, modelokart, valordeLocacao)
+  }
+  
+  funcao lista(caracter status[],cadeia modelokart[], real valordeLocacao[]){
+  	inteiro i
+  	
+  	para(i = 0; i < 15; i++){
+  		se(status[i] == 'L'){
+  			escreva("O status do kart é : ", status[i])
+  			escreva("O modelo é : ", modelokart[i])
+  			escreva("O valor de locação é : ", valordeLocacao[i])
+  			
+  			
+  		}
+  		
+  	}
   }
 }
