@@ -6,30 +6,29 @@ programa {
 //manutenção), valor total gasto em manutenção (começa em 0) se está ou não locado. 
 //A opção Listar karts disponíveis deve mostrar na tela as informações completas sobre 
 //todos os karts cadastrados. Dados em branco devem ser ignorados. 
-  funcao cadastarkart(){
-    escreva("Modelo: ")
-    leia(modelo[qntkart])
-    escreva("corkar: ")
-    leia(corkart)
-    escreva("Valor locação ")
-    leia(valordeLocacao)
-  }
 
 
   funcao inicio() {
-    cadeia cadastroDeKart, corkart, status
+    cadeia cadastroDeKart, corkart, status, modelokart
     inteiro qntlocacao
-    real valordeLocacao, valorManutencao
+    real valordeLocacao, valorManutencao = 0
 
-    escreva("\nQual é o modelo do kart? ")
+    escreva("\nQual é o modelo do kart? ", modelokart)
     leia(cadastroDeKart)
-    escreva("Qual é a cor do kart? ")
+    escreva("Qual é a cor do kart? ", corkart)
     leia(corkart)
-    escreva("Qual é o valor de locação do kart? ")
-    leia(valordelocacao)
-    escreva("Quantas vez o kart fo locado? ")
+    escreva("Qual é o valor de locação do kart? ", valordeLocacao)
+    leia(valordeLocacao)
+    escreva("Quantas vez o kart fo locado? ", qntlocacao)
     leia(qntlocacao)
-    escreva("O kart está disponivel? ")
+    escreva("O kart está disponivel? ", status)
+    leia(status)
+
+    escreva("O modelo do kart é :\n", modelokart)
+		escreva("\nCor do kart é : ", corkart)
+		escreva("\nO valor da,locação é: ", valordeLocacao)
+		escreva("\nQuantidade de vez que o kart foi locado é : ", qntlocacao)
+		escreva("\nStatus do kart: ", status)
 
     
 
