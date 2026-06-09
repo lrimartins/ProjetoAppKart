@@ -2,7 +2,7 @@ programa
 {
 	
 
-		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[]){
+		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[]){
 		//Decaração de variaveis
 		
 		//Para contole do Vetores
@@ -29,7 +29,7 @@ programa
 					
 						escreva("\n\nValor do ", I+1 ,"º Kart :",V[I],"$")
 
-						escreva("\n\nEstado de manutenção do Kart:",A[I])
+						escreva("\n\nEstado de manutenção do Kart:",m[I])
 						
 						}
 					
@@ -57,7 +57,7 @@ programa
 					//Mostra o modelo novamente para o usuario
 					escreva("Modelo : " , M[I])
 					escreva("\n\nValro : " , V[I],"$")
-					escreva("\n\nEstado de manutenção do Kart:",A[I])
+					escreva("\n\nEstado de manutenção do Kart:",m[I])
 				
 					//Para confima 
 					escreva("\n\nEste o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
@@ -80,7 +80,7 @@ programa
 			//Vai Por Porgrama de atualisaOsDados
 			se(R =='S'){
 				
-				AtualisaOsDados(V,M,I,A)
+				AtualisaOsDados(V,M,I,m)
 				
 				
 				}
@@ -97,7 +97,7 @@ programa
 			
 		}
 		
-	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I,caracter A[]){
+	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I ,caracter m[]){
 		
 		//Decaração de varial
 		
@@ -116,7 +116,7 @@ programa
 				//Modatra os modelo e valor do Kart
 				escreva("Modelo do Kart",I+1,":",M[I])
 				escreva("\n\nValor do Kart",I+1," :",V[I],"$")
-				escreva("\n\nEstado de manutenção do Kart:",A[I])
+				escreva("\n\nEstado de manutenção do Kart:",m[I])
 
 				//Para o usuario  muda os dado do Kart
 				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valor (A)Estado de Manutenção (E)Sai\n:")
@@ -154,18 +154,18 @@ programa
 			senao se(R=='A'){
 
 				//De usavel para manuteção
-				se(A[I]=='U'){
+				se(m[I]=='U'){
 					
 					limpa()
 					escreva("Estado mudado de usável para manuteção")
-					A[I]='M'
+					m[I]='M'
 					
 					}
 				//De Manuteção para usavel
 				senao{
 					limpa()
 					escreva("Estado mudado de manuteção para usável ")
-					A[I]='U'
+					m[I]='U'
 					
 					}	
 				}
@@ -301,12 +301,12 @@ lista(Status, modelokart, valordeLocacao)
 	
 	funcao inicio()
 	{
-	inteiro opcao
+
 			
 	cadeia  corkart[15], modelokart[15]
-     inteiro I,escaso[15]
+     inteiro I,escaso[15],opcao
      real valordeLocacao[15], valorManutencao = 0.0
-     caracter Status[15]
+     caracter Status[15],Manutecao[15]
      
 	para(I=0 ;I<15 ;I++){
 		
@@ -315,6 +315,7 @@ lista(Status, modelokart, valordeLocacao)
 		valordeLocacao[I]=0.0
 		Status[I]='L'
 		escaso[I]=0
+		Manutecao[I]='L'
 		
 		}
 		
@@ -354,7 +355,7 @@ lista(Status, modelokart, valordeLocacao)
 			}
 			senao se(opcao == 5){
 
-				 MenuDeAtualizacao(valordeLocacao,modelokart,Status)
+				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao)
 				
 				}
 	}
