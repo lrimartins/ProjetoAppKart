@@ -179,9 +179,12 @@ programa
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'L'){	
+
 				escreva("Kart ", i+1, " ", modelokart[i], " está Locado\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+
 			}senao se(s[i] != 'L'){	
+
 				escreva("Kart ", i+1, " não está disponivel\n")
 			}
 				
@@ -194,10 +197,13 @@ programa
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'M'){	
+
 				escreva("Kart ", i+1, " está em manutenção\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
 			}senao se(s[i] == 'L'){	
+
 				escreva("Kart ", i+1, " está disponivel\n")
+
 			}
 			
 	}
@@ -205,22 +211,27 @@ programa
 }
 		
 	funcao teste() {
+
     cadeia corkart[15], modelokart[15]
     inteiro I,espaco[15]
     real valordeLocacao[15], valorManutencao = 0.0
     caracter Status[15],R
 
 	para(I = 0 ;I < 15; I++){
+
 		modelokart[I]="----------"
 		corkart[I]="-----"
 		valordeLocacao[I]=0.0
 		Status[I]='L'
 		espaco[I]=0
-		}
+		
+}
 
     faca{
 	para(I=0; I < 15; I++){
+
 		se(modelokart[I]=="----------" e Status[I]=='L'){
+
 			escreva("\nEspaço ",I+1 ,"Livre\n ")
 			espaco[I]=0
 			
@@ -228,6 +239,7 @@ programa
 		
 	}
 	faca{
+
 		escreva("\nQual espaço para cadastar: ")
 		leia(I)
 		
@@ -279,8 +291,10 @@ programa
     		
   		}enquanto(R!='S' e R!='N')
   			
-    }enquanto(R=='S')    
+    }enquanto(R=='S')  
+
 lista(Status, modelokart, valordeLocacao)
+
   }
   
   funcao lista(caracter status[],cadeia modelokart[], real valordeLocacao[]){
@@ -288,6 +302,7 @@ lista(Status, modelokart, valordeLocacao)
   	
   	para(i = 0; i < 15; i++){
   		se(status[i] == 'L'){
+
   			escreva("O status do kart é : ", status[i])
   			escreva("O modelo é : ", modelokart[i])
   			escreva("O valor de locação é : ", valordeLocacao[i])
@@ -349,9 +364,13 @@ lista(Status, modelokart, valordeLocacao)
 			}senao se(opcao ==2){
 				
 			}senao se(opcao ==3){
+
 				listarKartsLocados(Status, modelokart)
+
 			}senao se(opcao == 4){
+
 				listarKartsManutencao(Status, modelokart)
+
 			}
 			senao se(opcao == 5){
 
