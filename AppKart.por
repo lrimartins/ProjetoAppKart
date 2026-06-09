@@ -119,10 +119,10 @@ programa
 				escreva("\n\nEstado de manutenção do Kart:",A[I])
 
 				//Para o usuario  muda os dado do Kart
-				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valro (A)Estado de Manutenção (E)Sai\n:")
+				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valor (A)Estado de Manutenção (E)Sai\n:")
 				leia(R)
 				
-				//Ser a Respostra for imvalida
+				//Ser a Respostra for invalida
 				se(R!='M' e R!='V' e R!='E' e R!='A'){
 					
 					limpa()
@@ -174,6 +174,30 @@ programa
 			
 		}
 
+		funcao listarKartsLocados(caracter s[], cadeia modelokart[]){
+			inteiro i
+			
+			para(i=0; i<15; i++){
+			se(s[i] == 'L'){	
+				escreva(modelokart[i])
+				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+			}
+				
+		}
+			
+			
+		}
+		funcao listarKartsManutencao(caracter s[], cadeia modelokart[]){
+			inteiro i
+			
+			para(i=0; i<15; i++){
+			se(s[i] == 'M'){	
+				escreva(modelokart[i])
+				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+			}
+				
+		}
+	}
 		
 	funcao teste() {
     cadeia corkart[15], modelokart[15]
@@ -317,6 +341,10 @@ lista(Status, modelokart, valordeLocacao)
 				
 			}senao se(opcao ==2){
 				
+			}senao se(opcao ==3){
+				listarKartsLocados(Status, modelokart)
+			}senao se(opcao == 4){
+				listarKartsManutencao(Status, modelokart)
 			}
 			senao se(opcao == 5){
 
