@@ -179,8 +179,10 @@ programa
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'L'){	
-				escreva("Kart ", i+1, " está Locado\n")
+				escreva("Kart ", i+1, " ", modelokart[i], " está Locado\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+			}senao se(s[i] != 'L'){	
+				escreva("Kart ", i+1, " não está disponivel\n")
 			}
 				
 		}
@@ -194,10 +196,13 @@ programa
 			se(s[i] == 'M'){	
 				escreva("Kart ", i+1, " está em manutenção\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+			}senao se(s[i] == 'L'){	
+				escreva("Kart ", i+1, " está disponivel\n")
 			}
-				
-		}
+			
 	}
+	
+}
 		
 	funcao teste() {
     cadeia corkart[15], modelokart[15]
