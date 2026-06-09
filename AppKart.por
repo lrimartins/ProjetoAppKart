@@ -312,6 +312,92 @@ lista(Status, modelokart, valordeLocacao)
   		
   	}
   }
+  		//Funcao para alugra Kart
+		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[]){
+			
+			inteiro I,C=0
+			caracter R='S'
+
+			escreva("\nLista como Kart Livres")
+			faca{
+				
+				//Mostra na tela os Kart livres
+				para(I=0;I<15;I++){
+					
+						se(A[I]=='L' e m[I]=='L'){
+						
+							escreva("\nModelo ",I+1,"º :",M[I])
+							escreva("\nValor do ",I+1,"º :",V[I],"$")
+							escreva("\nEstado :",A[I])
+							C++
+						
+							}
+					}
+
+				se(C!=0){
+				
+					faca{
+						//Para usuario escolhe o Kart
+						escreva("\nQual Kart goataria de alugra(Digite o numero):")
+						leia(I)
+						I--
+					
+						//Ser digita um numero invalido
+						se(I<0 ou I>14 ou A[I]=='A'){
+						
+							escreva("\nNumero imvalido")
+						
+							}
+				
+				}enquanto(I<0 ou I>14 ou A[I]=='A')
+
+				//Mostra os dados do Kart
+				escreva("\nModelo ",I+1,"º :",M[I])
+				escreva("\nValor do ",I+1,"º :",V[I],"$")
+				escreva("\nEstado :",A[I])
+
+
+				faca{
+					//So para confima
+					escreva("\nE este Kart ?\n(S)sim\n(N)não\n(E)Sai\n:")
+					leia(R)
+
+					//Se sim muda os estado de livre para alugrado
+					se(R=='S'){
+				
+						A[I]='A'
+			
+						}
+						
+					//senao a função fenisia a função
+					senao se(R=='N'){
+	
+						limpa()
+						AlugraKart(V,M,A,m)
+					
+						}
+						//Ser for digitado um letra que não e valida
+						senao se(R!='S' e R!='N' e R!='E' ){
+				
+						escreva("\nletra invalida")
+			
+						}
+
+				
+					}enquanto(R!='S' e R!='N' e R!='E')
+				}
+				senao{
+				
+				limpa()
+				escreva("\nTodos os Kart foi Locado\n")
+				
+				}
+			}enquanto(R!='E')
+			
+			//Se não over crte livre
+			
+				
+			}
 
 	
 	funcao inicio()
@@ -333,7 +419,7 @@ lista(Status, modelokart, valordeLocacao)
 		Manutecao[I]='L'
 		
 		}
-		
+		faca{
 			faca{
 			escreva("\n1 - Cadastrar um Kart")
 			escreva("\n2 - Lista Karts disponiveis")
@@ -377,5 +463,11 @@ lista(Status, modelokart, valordeLocacao)
 				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao)
 				
 				}
+			senao se(opcao == 6){
+				
+				AlugraKart(valordeLocacao,modelokart,Status,Manutecao)
+				
+				}
+	}enquanto(opcao!=12)
 	}
 }
