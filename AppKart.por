@@ -175,10 +175,100 @@ programa
 		}
 
 		
-	funcao teste(){
+	funcao teste() {
+    cadeia corkart[15], modelokart[15]
+    inteiro I,espaco[15]
+    real valordeLocacao[15], valorManutencao = 0.0
+    caracter Status[15],R
+
+	para(I = 0 ;I < 15; I++){
+		modelokart[I]="----------"
+		corkart[I]="-----"
+		valordeLocacao[I]=0.0
+		Status[I]='L'
+		espaco[I]=0
+		}
+
+    faca{
+	para(I=0; I < 15; I++){
+		se(modelokart[I]=="----------" e Status[I]=='L'){
+			escreva("\nEspaço ",I+1 ,"Livre\n ")
+			espaco[I]=0
+			
+			}
 		
 	}
+	faca{
+		escreva("\nQual espaço para cadastar: ")
+		leia(I)
+		
+		I--
+		
+		se(I < 0 ou I > 15){
+			
+			escreva("\nInvalido\n")
+			
+			}
+
+  		}enquanto(I < 0 ou I > 15)
+
+  	
+		escreva("O modelo do kart é : ")
+		leia(modelokart[I])
 	
+		escreva("\nCor do kart é : ")
+		leia(corkart[I])
+	
+		escreva("\nO valor da locação é: ")
+		leia(valordeLocacao[I])
+	
+		faca{
+		
+			escreva("\nStatus do kart(L)Livre(A)Alugado: " )
+			leia(Status[I])
+		
+			se(Status[I]!='L' e Status[I]!='A'){
+			
+				escreva("Letra invalida")
+			
+				}
+			
+		}enquanto(Status[I]!='L' e Status[I]!='A' )
+	
+		faca{
+		
+    			escreva("Gotaria de continua?(S)sim(N)não: ")
+    			leia(R)
+    			
+    			se(R!='S' e R!='N'){
+    				
+    				limpa()
+    				
+    				escreva("Letra invalida")
+    			
+    			}
+    		
+  		}enquanto(R!='S' e R!='N')
+  			
+    }enquanto(R=='S')    
+lista(Status, modelokart, valordeLocacao)
+  }
+  
+  funcao lista(caracter status[],cadeia modelokart[], real valordeLocacao[]){
+  	inteiro i
+  	
+  	para(i = 0; i < 15; i++){
+  		se(status[i] == 'L'){
+  			escreva("O status do kart é : ", status[i])
+  			escreva("O modelo é : ", modelokart[i])
+  			escreva("O valor de locação é : ", valordeLocacao[i])
+  			
+  			
+  		}
+  		
+  	}
+  }
+
 	
 	funcao inicio()
 	{
