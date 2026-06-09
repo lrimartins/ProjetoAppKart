@@ -19,20 +19,20 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
 		corkart[I]="-----"
 		valordeLocacao[I]=0.0
 		Status[I]='L'
-		escaso[I]=0
+		espaco[I]=0
 		}
 
     faca{
 	para(I=0 ; I<4 ; I++){
 		se(modelokart[I]=="----------" e Status[I]=='L'){
-			escreva("\nEspasso ",I+1,"Livre\n")
+			escreva("\nEspaço ",I+1,"Livre\n")
 			escaso[I]=0
 			
 			}
 		
 	}
 	faca{
-		escreva("\nQual espasso para cadasta:")
+		escreva("\nQual espaço para cadastar:")
 		leia(I)
 		
 		I--
@@ -57,7 +57,7 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
 	
 		faca{
 		
-			escreva("\nStatus do kart(L)Livre(A)Alugrado: " )
+			escreva("\nStatus do kart(L)Livre(A)Alugado: " )
 			leia(Status[I])
 		
 			se(Status[I]!='L' e Status[I]!='A'){
