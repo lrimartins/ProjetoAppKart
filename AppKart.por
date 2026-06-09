@@ -179,7 +179,7 @@ programa
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'L'){	
-				escreva(modelokart[i])
+				escreva("Kart ", i+1, " está Locado\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
 			}
 				
@@ -192,7 +192,7 @@ programa
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'M'){	
-				escreva(modelokart[i])
+				escreva("Kart ", i+1, " está em manutenção\n")
 				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
 			}
 				
@@ -325,7 +325,8 @@ lista(Status, modelokart, valordeLocacao)
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados")
 			escreva("\n10 - Locação de circuito")
 			escreva("\n11 - Atualizar dia")
-			escreva("\n12 - Sair do programa\n:")
+			escreva("\n12 - Sair do programa")
+			escreva("\nEscolha uma opção:")
 			leia(opcao)
 
 			se(opcao <1 ou opcao >12){
