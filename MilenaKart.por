@@ -1,20 +1,20 @@
 programa {
-/* Cadastrar um Kart  
+// Cadastrar um Kart  
 //2. Listar Karts disponíveis
-A opção cadastrar kart deve armazenar os dados de modelo, cor do kart, valor de 
-locação, quantidade de vezes que foi locado, status do kart (usável ou em 
-manutenção), valor total gasto em manutenção (começa em 0) se está ou não locado. 
-A opção Listar karts disponíveis deve mostrar na tela as informações completas sobre 
-todos os karts cadastrados. Dados em branco devem ser ignorados. */
+//A opção cadastrar kart deve armazenar os dados de modelo, cor do kart, valor de 
+//locação, quantidade de vezes que foi locado, status do kart (usável ou em 
+//manutenção), valor total gasto em manutenção (começa em 0) se está ou não locado. 
+//A opção Listar karts disponíveis deve mostrar na tela as informações completas sobre 
+//todos os karts cadastrados. Dados em branco devem ser ignorados.
 
 
   funcao inicio() {
-    cadeia  corkart[15], modelokart[15]
-    inteiro I,escaso[15]
+    cadeia corkart[15], modelokart[15]
+    inteiro I,espaco[15]
     real valordeLocacao[15], valorManutencao = 0.0
     caracter Status[15],R
 
-	para(I=0 ;I<15 ;I++){
+	para(I = 0 ;I < 15; I++){
 		modelokart[I]="----------"
 		corkart[I]="-----"
 		valordeLocacao[I]=0.0
@@ -23,30 +23,30 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
 		}
 
     faca{
-	para(I=0 ; I<4 ; I++){
+	para(I=0; I < 15; I++){
 		se(modelokart[I]=="----------" e Status[I]=='L'){
-			escreva("\nEspaço ",I+1,"Livre\n")
-			escaso[I]=0
+			escreva("\nEspaço ",I+1 ,"Livre\n ")
+			espaco[I]=0
 			
 			}
 		
 	}
 	faca{
-		escreva("\nQual espaço para cadastar:")
+		escreva("\nQual espaço para cadastar: ")
 		leia(I)
 		
 		I--
 		
-		se(I<0 ou I>15){
+		se(I < 0 ou I > 15){
 			
 			escreva("\nInvalido\n")
 			
 			}
 
-  		}enquanto(I<0 ou I>15)
+  		}enquanto(I < 0 ou I > 15)
 
   	
-		escreva("O modelo do kart é :")
+		escreva("O modelo do kart é : ")
 		leia(modelokart[I])
 	
 		escreva("\nCor do kart é : ")
@@ -70,7 +70,7 @@ todos os karts cadastrados. Dados em branco devem ser ignorados. */
 	
 		faca{
 		
-    			escreva("Gotaria de continua ?(S)sim(N)não")
+    			escreva("Gotaria de continua?(S)sim(N)não: ")
     			leia(R)
     			
     			se(R!='S' e R!='N'){
