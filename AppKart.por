@@ -178,15 +178,37 @@ programa
 	funcao teste(){
 		
 	}
-	
-	
+    funcao real locacaoCircuito(real receitaDiaria, real valorCircuito){
+    real tempo, valorTotal
+    inteiro resposta
+    faca{
+    escreva("Digite o tempo de locação em horas")
+    leia(tempo)
+    // validar entrada (evitar tempo negativo)
+    enquanto(tempo<0){
+      escreva("Opção inválida!Digite novamente: ")
+      leia(tempo)
+    }
+    //processamento valortotal, receitaDiaria 
+    valorTotal=valorCircuito*tempo
+    receitaDiaria=receitaDiaria+(valorTotal*0.7)
+    escreva("O valor dessa locacao é: ",valorTotal)
+    escreva("\nDeseja cadastrar outra locação?\n1-Sim\n2-nao")
+    leia(resposta)
+    }enquanto(resposta==1)
+    retorne receitaDiaria
+
+
+  }
+  
+
 	funcao inicio()
 	{
 	inteiro opcao
 			
 	cadeia  corkart[15], modelokart[15]
      inteiro I,escaso[15]
-     real valordeLocacao[15], valorManutencao = 0.0
+     real valordeLocacao[15], valorManutencao = 0.0, receitaDiaria=0.0, valorCircuito=200.0 //valorCircuito cadastra assim ou pro usuario?
      caracter Status[15]
      
 	para(I=0 ;I<15 ;I++){
@@ -233,5 +255,8 @@ programa
 				 MenuDeAtualizacao(valordeLocacao,modelokart,Status)
 				
 				}
+        senao se(opcao == 10){
+          locacaoCircuito(receitaDiaria,valorCircuito)
+        }
 	}
 }
