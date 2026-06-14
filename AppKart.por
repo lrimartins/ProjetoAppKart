@@ -313,7 +313,7 @@ lista(Status, modelokart, valordeLocacao)
   	}
   }
   		//Funcao para alugra Kart
-		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[]){
+		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[]){
 			
 			inteiro I,C=0
 			caracter R='S'
@@ -364,8 +364,11 @@ lista(Status, modelokart, valordeLocacao)
 
 					//Se sim muda os estado de livre para alugrado
 					se(R=='S'){
-				
+						
+						Q[I]=Q[I]+1
 						A[I]='A'
+
+						
 			
 						}
 						
@@ -373,7 +376,7 @@ lista(Status, modelokart, valordeLocacao)
 					senao se(R=='N'){
 	
 						limpa()
-						AlugraKart(V,M,A,m)
+						AlugraKart(V,M,A,m,Q)
 					
 						}
 						//Ser for digitado um letra que não e valida
@@ -405,7 +408,7 @@ lista(Status, modelokart, valordeLocacao)
 
 			
 	cadeia  corkart[15], modelokart[15]
-     inteiro I,escaso[15],opcao
+     inteiro I,escaso[15],opcao,QuantasVezesLocado[15]
      real valordeLocacao[15], valorManutencao = 0.0
      caracter Status[15],Manutecao[15]
      
@@ -417,6 +420,7 @@ lista(Status, modelokart, valordeLocacao)
 		Status[I]='L'
 		escaso[I]=0
 		Manutecao[I]='L'
+		QuantasVezesLocado[I]=0
 		
 		}
 		faca{
@@ -465,7 +469,7 @@ lista(Status, modelokart, valordeLocacao)
 				}
 			senao se(opcao == 6){
 				
-				AlugraKart(valordeLocacao,modelokart,Status,Manutecao)
+				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado)
 				
 				}
 	}enquanto(opcao!=12)
