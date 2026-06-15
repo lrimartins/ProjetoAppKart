@@ -313,7 +313,7 @@ lista(Status, modelokart, valordeLocacao)
   	}
   }
   		//Funcao para alugra Kart
-		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[]){
+		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],real Q[]){
 			
 			inteiro I,C=0
 			caracter R='S'
@@ -397,20 +397,27 @@ lista(Status, modelokart, valordeLocacao)
 				}
 			}enquanto(R!='E')
 			
-			//Se não over crte livre
+			//Se não tiver kart livre
 			
 				
 			}
-			funcao receitaLucroDia(real QuantasVezesLocado, real valordeLocacao, real receitaDiaria){ //voltar depois
-				real valorCircuito=200.0
-				//atribuir real pra ela retornar
-				receitaDiaria = locacaoCircuito(receitaDiaria, valorCircuito)
-				escreva("O total da receita gerada pelos karts é: ")//tem que criar uma variavel pro valor total da receita dos karts 
+			funcao real receitaLucroDia(real QuantasVezesLocado[], real valordeLocacao[], real lucroLocacao){
+				real valorCircuito=200.0, receitaKarts=0.0, lucroKarts=0.0, lucroDiario=0.0
+				//pra calcular receita 
+				para(inteiro i=0;i<15;i++){
+						receitaKarts=receitaKarts+(valordeLocacao[i]*QuantasVezesLocado[i])
+					}
+					escreva("O total da receita gerada pelos karts é: ",receitaKarts,"\n") 
+					//pra calcular o lucro dos Karts 
+				para(inteiro i=0;i<15;i++){
+						lucroKarts=lucroKarts+(valordeLocacao[i]*QuantasVezesLocado[i]*0.3)
+					}
+				lucroDiario = lucroKarts+lucroLocacao
+				retorne lucroDiario
 				}
 
-
 				
-				funcao real locacaoCircuito(real receitaDiaria, real valorCircuito){
+				funcao real locacaoCircuito(real lucroLocacao, real valorCircuito){
     					real tempo, valorTotal
     					inteiro resposta
     					faca{
@@ -423,12 +430,12 @@ lista(Status, modelokart, valordeLocacao)
     							}
     							//processamento valortotal, receitaDiaria 
     							valorTotal=valorCircuito*tempo
-    							receitaDiaria=receitaDiaria+(valorTotal*0.7)
+    							lucroLocacao=lucroLocacao+(valorTotal*0.7)
     							escreva("O valor dessa locacao é: ",valorTotal)
     							escreva("\nDeseja cadastrar outra locação?\n1-Sim\n2-nao")
     							leia(resposta)
     						}enquanto(resposta==1)
-   						retorne receitaDiaria
+   						retorne lucroLocacao
 				}
 
 	
@@ -437,8 +444,9 @@ lista(Status, modelokart, valordeLocacao)
 
 			
 	cadeia  corkart[15], modelokart[15]
-     inteiro I,escaso[15],opcao,QuantasVezesLocado[15]
-     real valordeLocacao[15], valorManutencao = 0.0, receitaDiaria=0.0, valorCircuito=200.0
+     inteiro I,escaso[15],opcao
+     real QuantasVezesLocado[15], lucroLocacao = 0.0
+     real valordeLocacao[15], valorManutencao = 0.0, lucroDiario=0.0, valorCircuito=200.0
      caracter Status[15],Manutecao[15]
      
 	para(I=0 ;I<15 ;I++){
@@ -501,10 +509,13 @@ lista(Status, modelokart, valordeLocacao)
 				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado)
 				
 				}
+				senao se(opcao == 9){
+					receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
+					escreva("O lucro diário é: ",lucroDiario)
+					}
 				senao se (opcao ==10){
-					locacaoCircuito(receitaDiaria,valorCircuito)
+					locacaoCircuito(lucroLocacao,valorCircuito)
 					}
 	}enquanto(opcao!=12)
 	}
 }
-
