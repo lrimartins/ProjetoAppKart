@@ -1,35 +1,64 @@
 programa
 {
-    funcao CadastarKart(cadeia modelokart[],
-        cadeia corkart[],
-       real valordeLocacao[],
-        caracter Status[]){
+   funcao CadastarKart(cadeia modelokart[] , cadeia corkart[] , real valordeLocacao[] , caracter Status[]){
     	
-   	inteiro I
-   	
-      escreva("Qual kart deseja cadastar? ")
-      leia(I)
-      I--
-      se(I < 0 ou I > 14){
-        escreva("Posição invalida\n")
-      }
-      senao{
+   		inteiro I 
+   		
+   		para(I = 0 ; I < 15 ;I++){
+
+				//Para verifica se estão ou nao livre
+				
+				//Se sim 
+				se(modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+					
+					//Mostar quais estão livres
+					escreva ("\nNo Espaço ",I+1," esta livre para novo cadastro\n")
+					
+					//Validação livre
+					
+				
+					}
+   				}
+   		faca{
+   			
+			escreva("Qual kart deseja cadastar? ")
+			leia(I)
+			I--
+      
+      	se(I < 0 ou I > 14 ou modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+      	
+			escreva("Posição invalida\n")
+        
+      			}
+      			
+   		}enquanto(I < 0 ou I > 14 ou modelokart[I] == "----------" e valordeLocacao[I] == 0.0)
+      
         escreva("Modelo do kart:\n ")
         leia(modelokart[I])
+        
         escreva("Cor do kart:\n ")
         leia(corkart[I])
+        
         escreva("Valor de locação do kart:\n ")
         leia(valordeLocacao[I])
+        
         Status[I] = 'L'
-      }
+      
 
 
     }
+
+    
     funcao listarKartsDisponiveis(cadeia modelokart[],cadeia corkart[],real valordeLocacao[],caracter Status[]){
+    	
       inteiro I, encontrou = 0
+      
        escreva("\n--- LISTA DE KARTS DISPONIVEIS ---\n")
+       
       para(I = 0; I < 15;I++){
-        se(Status[I] == 'L'){
+      	
+        se(Status[I] == 'L' e modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+        	
         escreva("\nModelo: ", modelokart[I])
         escreva("\nCor : ", corkart[I])
         escreva("\nValor : ", valordeLocacao[I])
