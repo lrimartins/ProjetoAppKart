@@ -92,7 +92,7 @@ programa
        
       para(I = 0; I < 15;I++){
       	
-        se(Status[I] == 'L' e modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+        se(Status[I] == 'L' e modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
         	
         escreva("\nModelo: ", modelokart[I])
         escreva("\nCor : ", corkart[I])
@@ -317,92 +317,7 @@ programa
 	
 }
 		
-	funcao teste() {
-
-    cadeia corkart[15], modelokart[15]
-    inteiro I,espaco[15]
-    real valordeLocacao[15], valorManutencao = 0.0
-    caracter Status[15],R
-
-	para(I = 0 ;I < 15; I++){
-
-		modelokart[I]="----------"
-		corkart[I]="-----"
-		valordeLocacao[I]=0.0
-		Status[I]='L'
-		espaco[I]=0
-		
-}
-
-    faca{
-	para(I=0; I < 15; I++){
-
-		se(modelokart[I]=="----------" e Status[I]=='L'){
-
-			escreva("\nEspaço ",I+1 ,"Livre\n ")
-			espaco[I]=0
-			
-			}
-		
-	}
-	faca{
-
-		escreva("\nQual espaço para cadastar: ")
-		leia(I)
-		
-		I--
-		
-		se(I < 0 ou I > 15){
-			
-			escreva("\nInvalido\n")
-			
-			}
-
-  		}enquanto(I < 0 ou I > 15)
-
-  	
-		escreva("O modelo do kart é : ")
-		leia(modelokart[I])
 	
-		escreva("\nCor do kart é : ")
-		leia(corkart[I])
-	
-		escreva("\nO valor da locação é: ")
-		leia(valordeLocacao[I])
-	
-		faca{
-		
-			escreva("\nStatus do kart(L)Livre(A)Alugado: " )
-			leia(Status[I])
-		
-			se(Status[I]!='L' e Status[I]!='A'){
-			
-				escreva("Letra invalida")
-			
-				}
-			
-		}enquanto(Status[I]!='L' e Status[I]!='A' )
-	
-		faca{
-		
-    			escreva("Gotaria de continua?(S)sim(N)não: ")
-    			leia(R)
-    			
-    			se(R!='S' e R!='N'){
-    				
-    				limpa()
-    				
-    				escreva("Letra invalida")
-    			
-    			}
-    		
-  		}enquanto(R!='S' e R!='N')
-  			
-    }enquanto(R=='S')  
-
-lista(Status, modelokart, valordeLocacao)
-
-  }
   
   funcao lista(caracter status[],cadeia modelokart[], real valordeLocacao[]){
   	inteiro i
@@ -543,6 +458,7 @@ lista(Status, modelokart, valordeLocacao)
     							escreva("\nDeseja cadastrar outra locação?\n1-Sim\n2-nao")
     							leia(resposta)
     						}enquanto(resposta==1)
+    						
    						retorne lucroLocacao
 				}
 
@@ -630,7 +546,7 @@ lista(Status, modelokart, valordeLocacao)
 				}
 				
 			senao se(opcao == 9){
-					receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
+					lucroDiario=receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
 					escreva("O lucro diário é: ",lucroDiario)
 					}
 			senao se (opcao ==10){
