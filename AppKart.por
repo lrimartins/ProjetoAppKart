@@ -1,6 +1,31 @@
 programa
 {
-	
+    funcao CadastarKart(cadeia modelokart[],
+        cadeia corkart[],
+       real  valordeLocacao[],
+        caracter Status[]){
+    	
+   	inteiro I
+   	
+      escreva("Qual kart deseja cadastar? ")
+      leia(I)
+      I--
+      se(I < 0 ou I > 14){
+        escreva("Posição invalida\n")
+      }
+      senao{
+        escreva("Modelo do kart:\n ")
+        leia(modelokart[I])
+        escreva("Cor do kart:\n ")
+        leia(corkart[I])
+        escreva("Valor de locação do kart:\n ")
+        leia(valordeLocacao[I])
+        Status[I] = 'L'
+      }
+
+
+    }
+
 
 		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[]){
 		//Decaração de variaveis
@@ -413,7 +438,7 @@ lista(Status, modelokart, valordeLocacao)
      caracter Status[15],Manutecao[15]
      
 	para(I=0 ;I<15 ;I++){
-		
+
 		modelokart[I]="----------"
 		corkart[I]="-----"
 		valordeLocacao[I]=0.0
@@ -439,6 +464,17 @@ lista(Status, modelokart, valordeLocacao)
 			escreva("\n12 - Sair do programa")
 			escreva("\nEscolha uma opção:")
 			leia(opcao)
+
+      se(opcao == 1){
+
+    CadastarKart(
+        modelokart,
+        corkart,
+        valordeLocacao,
+        Status
+    )
+
+}
 
 			se(opcao <1 ou opcao >12){
 				
