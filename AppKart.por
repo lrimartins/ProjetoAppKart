@@ -53,7 +53,7 @@ programa
     	
       inteiro I, encontrou = 0
       
-       escreva("\n--- LISTA DE KARTS DISPONIVEIS ---\n")
+       escreva("\n--- LISTA DE KARTS DISPONÍVEIS ---\n")
        
       para(I = 0; I < 15;I++){
       	
@@ -75,7 +75,7 @@ programa
 
 
 		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[]){
-		//Decaração de variaveis
+		//Declaração  de variaveis
 		
 		//Para contole do Vetores
 		inteiro I
@@ -109,20 +109,20 @@ programa
 					escreva("\nQual Kart goataria de atualisa os Dados : ")
 					leia(I)
 				
-					//Por comesa em o e não em 1
+					//Por começa em 0 e não em 1
 					I--
 				
 					//Ser for digitado valor um valido
 					se(I<0 ou I>14){
 				
 						limpa()
-						escreva("Numero Imvalido\n\n")
+						escreva("Numero Invalido\n\n")
 				
 					}
 		
-			}enquanto(I<0 ou I>14)//Para cado a pessoa digita uma numero não desejado 
+			}enquanto(I<0 ou I>14)//Para caso a pessoa digita um numero não desejado 
 
-				//Fica repetido ate o usuaruo digita um valor valido
+				//Fica repitindo ate o usuario digita um valor valido
 				faca{
 				
 					limpa()
@@ -131,19 +131,19 @@ programa
 					escreva("\n\nValro : " , V[I],"$")
 					escreva("\n\nEstado de manutenção do Kart:",m[I])
 				
-					//Para confima 
-					escreva("\n\nEste o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
+					//Para confirmar 
+					escreva("\n\nEste e o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
 					leia(R)
 
-					//Ser fo digitado um valor não desejado
+					//Ser for digitado um valor não desejado
 					se(R!='S' e R!='N' e R!='E'){
 					
 						limpa()
-						escreva("\nLetra limvalida")
+						escreva("\nLetra linvalida")
 			
 						}
 			
-					}enquanto(R!='S' e R!='N'e R!='E')//Fica repetido ate o usuaruo digita um valor valido
+					}enquanto(R!='S' e R!='N'e R!='E')//Fica repetido ate o usuario digita um valor valido
 				
 				limpa()
 					
