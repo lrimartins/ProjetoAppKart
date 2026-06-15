@@ -1,5 +1,40 @@
 programa
 {
+	funcao retorna_kart(cadeia corKart[], cadeia modeloKart[], caracter Status[]){
+		
+		cadeia devolver [15]
+		inteiro i=0, selecione,D=0
+
+		para (i=0; i<15; i++){
+			se(Status[i]=='A' e modeloKart[i]!="----------" e corKart[i]!="-----"){
+				escreva("\nStatus do Kart: ",  i+1, "alugado\n")
+				escreva("\nO modelo do kart é : ", modeloKart[i])
+				escreva("\nCor do kart é : ", corKart[i])
+				D++
+					}
+				}
+				se(D>0){
+					faca{
+						escreva("Qual kart quer devolver: ")
+						leia (selecione)
+						selecione--
+							se(selecione<0 ou selecione>14){
+							
+								escreva("\nNúmero inválido\n")
+							
+								}
+							}enquanto(selecione<0 ou selecione>14)
+							Status[selecione] = 'L'
+				}
+				senao{
+					
+					escreva("\n\nNão tem Kart cadastado ou todos livre\n")
+					
+					}
+						
+						
+}
+
    funcao CadastarKart(cadeia modelokart[] , cadeia corkart[] , real valordeLocacao[] , caracter Status[]){
     	
    		inteiro I 
@@ -25,13 +60,13 @@ programa
 			leia(I)
 			I--
       
-      	se(I < 0 ou I > 14 ou modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+      	se(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
       	
 			escreva("Posição invalida\n")
         
       			}
       			
-   		}enquanto(I < 0 ou I > 14 ou modelokart[I] == "----------" e valordeLocacao[I] == 0.0)
+   		}enquanto(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] !=0.0)
       
         escreva("Modelo do kart:\n ")
         leia(modelokart[I])
@@ -527,7 +562,7 @@ lista(Status, modelokart, valordeLocacao)
 
 		modelokart[I]="----------"
 		corkart[I]="-----"
-		valordeLocacao[I]=0.0
+		valordeLocacao[I]=10.0
 		Status[I]='L'
 		escaso[I]=0
 		Manutecao[I]='L'
@@ -551,11 +586,7 @@ lista(Status, modelokart, valordeLocacao)
 			escreva("\nEscolha uma opção:")
 			leia(opcao)
 
-      se(opcao == 1){
-
-    CadastarKart(modelokart,corkart,valordeLocacao,Status)
-
-}
+      
 
 			se(opcao <1 ou opcao >12){
 				
@@ -592,6 +623,12 @@ lista(Status, modelokart, valordeLocacao)
 				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado)
 				
 				}
+			senao se(opcao == 7){
+				
+				retorna_kart(corkart, modelokart, Status)
+				
+				}
+				
 			senao se(opcao == 9){
 					receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
 					escreva("O lucro diário é: ",lucroDiario)
