@@ -2,7 +2,7 @@ programa
 {
     funcao CadastarKart(cadeia modelokart[],
         cadeia corkart[],
-       real  valordeLocacao[],
+       real valordeLocacao[],
         caracter Status[]){
     	
    	inteiro I
@@ -23,6 +23,24 @@ programa
         Status[I] = 'L'
       }
 
+
+    }
+    funcao listarKartsDisponiveis(cadeia modelokart[],cadeia corkart[],real valordeLocacao[],caracter Status[]){
+      inteiro I, encontrou = 0
+       escreva("\n--- LISTA DE KARTS DISPONIVEIS ---\n")
+      para(I = 0; I < 15;I++){
+        se(Status[I] == 'L'){
+        escreva("\nModelo: ", modelokart[I])
+        escreva("\nCor : ", corkart[I])
+        escreva("\nValor : ", valordeLocacao[I])
+        escreva("\nStatus: ", Status[I])
+        encontrou = 1
+
+         }
+      }
+       se(encontrou == 0){
+        escreva("\nNenhum kart cadastrado ou disponível!\n")
+       }
 
     }
 
@@ -428,8 +446,7 @@ lista(Status, modelokart, valordeLocacao)
 			}
 
 	
-	funcao inicio()
-	{
+	funcao inicio(){
 
 			
 	cadeia  corkart[15], modelokart[15]
@@ -467,12 +484,7 @@ lista(Status, modelokart, valordeLocacao)
 
       se(opcao == 1){
 
-    CadastarKart(
-        modelokart,
-        corkart,
-        valordeLocacao,
-        Status
-    )
+    CadastarKart(modelokart,corkart,valordeLocacao,Status)
 
 }
 
@@ -485,9 +497,12 @@ lista(Status, modelokart, valordeLocacao)
 			}enquanto(opcao <1 ou opcao >12)
 			
 			se(opcao == 1){
-				
+        CadastarKart(modelokart,corkart,valordeLocacao,Status)
 				
 			}senao se(opcao ==2){
+
+        listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
+
 				
 			}senao se(opcao ==3){
 
