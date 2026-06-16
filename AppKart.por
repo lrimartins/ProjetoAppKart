@@ -403,13 +403,13 @@ programa
 						I--
 					
 						//Ser digita um numero invalido
-						se(I<0 ou I>14 ou A[I]=='A'e m[I]=='M' e V[I]==0.0 e M[I]=="----------"){
+						se(I<0 ou I>14 ou A[I]=='A' ou m[I]=='M' ou V[I]==0.0 e M[I]=="----------"){
 						
 							escreva("\nNumero imvalido")
 						
 							}
 				
-				}enquanto(I<0 ou I>14 ou A[I]=='A' e m[I]=='M' e V[I]==0.0 e M[I]=="----------")
+				}enquanto(I<0 ou I>14 ou A[I]=='A' ou m[I]=='M' ou V[I]==0.0 e M[I]=="----------")
 
 				//Mostra os dados do Kart
 				escreva("\nModelo ",I+1,"º : ",M[I])
@@ -428,7 +428,7 @@ programa
 						
 						Q[I]=Q[I]+1
 						A[I]='A'
-
+						R = 'E'
 						
 			
 						}
@@ -574,7 +574,7 @@ programa
 			escreva("\n3 - Listar Karts locados*")
 			escreva("\n4 - Listar Karts em manutenção*")
 			escreva("\n5 - Atualizar dados do Kart*")
-			escreva("\n6 - Alugar um Kart")
+			escreva("\n6 - Alugar um Kart*")
 			escreva("\n7 - Devolver um Kart")
 			escreva("\n8 - Kart que mais gerou ganhos")
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados")
