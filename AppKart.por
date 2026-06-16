@@ -141,7 +141,7 @@ programa
 		// Declaração de variáveis
 		
 		// Para controle dos vetores
-		inteiro I
+		inteiro I,D=0
 		
 		// Para escolhas 
 		caracter R
@@ -159,15 +159,24 @@ programa
 					para(I=0 ; I<15 ;I++){
 					
 						// *I+1* pois começa em 0 e não em 1
-					
-						escreva("\n\nModelo do ", I+1 ,"º Kart: " ,M[I])
-						escreva("\nValor do ", I+1 ,"º Kart: ",V[I],"$")
-						escreva("\nCor do ", I+1 ,"º Kart: ",C[I])
-						escreva("\nEstado de manutenção do kart: ",m[I],"\n\n")
-						
+						se(M[I]!="----------" ou V[I]!=0.0){
+							
+							escreva("\n\nModelo do ", I+1 ,"º Kart: " ,M[I])
+							escreva("\nValor do ", I+1 ,"º Kart: ",V[I],"$")
+							escreva("\nCor do ", I+1 ,"º Kart: ",C[I])
+							escreva("\nEstado de manutenção do kart: ",m[I],"\n\n")
+							
+							D++
+							
+							}
+						senao{
+
+							escreva("\n\nKart ",I+1,"º Não cadastrado")
+							
+							}
 						
 						}
-					
+					se(D!=0){
 					// Para ler qual kart o usuário quer
 					escreva("\nQual kart gostaria de atualizar os dados? (Somente números): ")
 					leia(I)
@@ -176,16 +185,21 @@ programa
 					I--
 				
 					// Se for digitado um valor inválido
-					se(I<0 ou I>14){
+					se(I<0 ou I>14 ou M[I]!="----------" ou V[I]!=0.0){
 				
 						limpa()
 						escreva("Número inválido\n\n")
 				
-					}
-		
-			}enquanto(I<0 ou I>14) // Para caso a pessoa digitar um número não desejado 
-
+						}
+					}senao{
+						
+						I=0
+						
+						}
+			}enquanto(I<0 ou I>14 ou M[I]!="----------" ou V[I]!=0.0) // Para caso a pessoa digitar um número não desejado 
+			
 				// Fica repetindo até o usuário digitar um valor válido
+				se(D!=0){
 				faca{
 				
 					limpa()
@@ -212,8 +226,13 @@ programa
 				
 				limpa()
 					
-				}enquanto(R =='N') // Se o usuário não for o kart desejado para atualizar
-		
+				}
+				senao{
+					
+					R='E'
+					
+					}
+			}enquanto(R =='N')// Se o usuário não for o kart desejado para atualizar
 			// Vai para a função de atualizar os dados
 			se(R =='S'){
 				
@@ -225,14 +244,14 @@ programa
 			// Senão (se for o E de sair) volta para o menu
 			senao{
 				
-				limpa()
-				escreva("Saindo...\n\n")
+				
+				escreva("\n\nSaindo...\n\n")
 				
 				}
-
+			
 			}enquanto(R!='E') // Sai somente se o usuário quiser
 			
-		}
+			}
 		
 	funcao atualizarDados(real V[] , cadeia M[], inteiro I , caracter m[], cadeia C[]){
 		
