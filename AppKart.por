@@ -14,6 +14,7 @@ programa
 				escreva("\nCor do kart é: ", corKart[i])
 				
 				D++
+				
 				}
 					
 			}
@@ -26,13 +27,13 @@ programa
 						leia (selecione)
 						selecione--
 						
-							se(selecione<0 ou selecione>14){
+							se(selecione<0 ou selecione>14 e Status[selecione]=='A' e modeloKart[selecione]=="----------" e corKart[selecione]=="-----"){
 							
 								escreva("\nNúmero inválido\n")
 							
 								}
 								
-							}enquanto(selecione<0 ou selecione>14)
+							}enquanto(selecione<0 ou selecione>14 e Status[selecione]=='A' e modeloKart[selecione]=="----------" e corKart[selecione]=="-----")
 							
 							Status[selecione] = 'L'
 				}
@@ -200,33 +201,34 @@ programa
 			
 				// Fica repetindo até o usuário digitar um valor válido
 				se(D!=0){
-				faca{
+					faca{
 				
-					limpa()
-					// Mostra o modelo novamente para o usuário
+						limpa()
+						// Mostra o modelo novamente para o usuário
 					
-					escreva("Modelo: " , M[I])
-					escreva("\nValor: " , V[I],"$")
-					escreva("\nCor do kart: ",C[I])
-					escreva("\nEstado de manutenção do kart: ",m[I])
+						escreva("Modelo: " , M[I])
+						escreva("\nValor: " , V[I],"$")
+						escreva("\nCor do kart: ",C[I])
+						escreva("\nEstado de manutenção do kart: ",m[I])
 				
-					// Para confirmar 
-					escreva("\n\nEste é o kart desejado?\n(S) Sim  (N) Não  (E) Sair: ")
-					leia(R)
+						// Para confirmar 
+						escreva("\n\nEste é o kart desejado?\n(S) Sim  (N) Não  (E) Sair: ")
+						leia(R)
 
 					// Se for digitado um valor inválido
-					se(R!='S' e R!='N' e R!='E'){
+						se(R!='S' e R!='N' e R!='E'){
 					
-						limpa()
-						escreva("\nLetra inválida")
+							limpa()
+							escreva("\nLetra inválida")
 			
-						}
+							}
 			
-					}enquanto(R!='S' e R!='N' e R!='E') // Fica repetindo até o usuário digitar um valor válido
+						}enquanto(R!='S' e R!='N' e R!='E') // Fica repetindo até o usuário digitar um valor válido
 				
 				limpa()
 					
 				}
+				
 				senao{
 					
 					R='E'
@@ -568,7 +570,7 @@ programa
 			}
 		funcao ganhosKartMais(real V[] , inteiro C[]){
 			
-			inteiro I,G
+			inteiro I,G=-1
 			real ganhoMaior=0.0,ganho
 			
 			para(I=0 ;I<15 ;I++){
@@ -582,7 +584,8 @@ programa
 					}
 				
 				}
-			
+
+			escreva("\n\nKart com maio ganho foi ",G+1," com ",ganhoMaior," R$\n\n")
 			
 			}
 
@@ -616,13 +619,13 @@ programa
 			escreva("\n3 - Listar karts locados*")
 			escreva("\n4 - Listar karts em manutenção*")
 			escreva("\n5 - Atualizar dados do kart")
-			escreva("\n6 - Alugar um kart")
+			escreva("\n6 - Alugar um kart*")
 			escreva("\n7 - Devolver um kart")
-			escreva("\n8 - Kart que mais gerou ganhos")
-			escreva("\n9 - Receita e lucro do dia, considerando karts locados")
+			escreva("\n8 - Kart que mais gerou ganhos*")
+			escreva("\n9 - Receita e lucro do dia, considerando karts locados*")
 			escreva("\n10 - Locação de circuito")
 			escreva("\n11 - Atualizar dia")
-			escreva("\n12 - Sair do programa")
+			escreva("\n12 - Sair do programa*")
 			escreva("\nEscolha uma opção: ")
 			
 			leia(opcao)
