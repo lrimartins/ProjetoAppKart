@@ -298,7 +298,7 @@ programa
 			senao se(R=='A'){
 
 				// De utilizável para manutenção
-				se(m[I]=='U'){
+				se(m[I]=='L'){
 					
 					limpa()
 					escreva("Estado mudado de utilizável para manutenção ")
@@ -306,10 +306,10 @@ programa
 					
 					}
 				// De manutenção para utilizável
-				senao{
+				senao se(m[I]== 'M'){
 					limpa()
 					escreva("Estado mudado de manutenção para utilizável ")
-					m[I]='U'
+					m[I]='L'
 					
 					}	
 				}
@@ -591,10 +591,10 @@ programa
 			
 			faca{
 				
-			escreva("\n1 - Cadastrar um kart")
-			escreva("\n2 - Listar karts disponíveis")
-			escreva("\n3 - Listar karts locados")
-			escreva("\n4 - Listar karts em manutenção")
+			escreva("\n1 - Cadastrar um kart*")
+			escreva("\n2 - Listar karts disponíveis*")
+			escreva("\n3 - Listar karts locados*")
+			escreva("\n4 - Listar karts em manutenção*")
 			escreva("\n5 - Atualizar dados do kart")
 			escreva("\n6 - Alugar um kart")
 			escreva("\n7 - Devolver um kart")
