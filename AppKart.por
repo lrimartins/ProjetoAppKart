@@ -371,6 +371,7 @@ programa
   		
   	}
   }
+  
   		//Funcao para alugra Kart
 		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[],cadeia C[]){
 			
@@ -543,6 +544,25 @@ programa
 			
 			
 			}
+		funcao GanhosKartMais(real V[] ,inteiro C[]){
+			
+			inteiro I,G
+			real ganhoMaior=0.0,ganho
+			
+			para(I=0 ;I<15 ;I++){
+				
+				ganho = V[I]*C[I]
+				se(ganhoMaior<ganho){
+					
+					ganhoMaior=ganho
+					G=I
+					
+					}
+				
+				}
+			
+			
+			}
 
 	
 	funcao inicio(){
@@ -612,39 +632,37 @@ programa
 
 				listarKartsManutencao(Manutecao, modelokart)
 
-			}
-			senao se(opcao == 5){
+			}senao se(opcao == 5){
 
 				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao,corkart)
 				
-				}
-			senao se(opcao == 6){
+			}senao se(opcao == 6){
 				
 				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado,corkart)
 				
-				}
-			senao se(opcao == 7){
+			}senao se(opcao == 7){
 				
 				retorna_kart(corkart, modelokart, Status)
 				
-				}
+			}senao se(opcao == 8){
 				
-			senao se(opcao == 9){
+				GanhosKartMais(valordeLocacao,QuantasVezesLocado)
+				
+			}senao se(opcao == 9){
 				
 					lucroDiario=receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
 					escreva("O lucro diário é: ",lucroDiario)
 					
-					}
-			senao se (opcao ==10){
+			}senao se (opcao ==10){
 				
 					locacaoCircuito(lucroLocacao,valorCircuito)
 					
-					}
-			senao se(opcao == 11){
+			}senao se(opcao == 11){
 				
 				AtualizaDia(Status,modelokart,corkart,valordeLocacao,QuantasVezesLocado)
 				
 				}
+				
 	}enquanto(opcao!=12)
 	}
 }
