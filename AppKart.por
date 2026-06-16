@@ -372,9 +372,9 @@ programa
   	}
   }
   		//Funcao para alugra Kart
-		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[]){
+		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[],cadeia C[]){
 			
-			inteiro I,C=0
+			inteiro I,D=0
 			caracter R='S'
 
 			escreva("\nLista como Kart Livres")
@@ -383,17 +383,18 @@ programa
 				//Mostra na tela os Kart livres
 				para(I=0;I<15;I++){
 					
-						se(A[I]=='L' e m[I]=='L'){
+						se(A[I]=='L' e m[I]=='L' e V[I]!=0.0 e M[I]!="----------"){
 						
-							escreva("\nModelo ",I+1,"º :",M[I])
-							escreva("\nValor do ",I+1,"º :",V[I],"$")
-							escreva("\nEstado :",A[I])
-							C++
+							escreva("\nModelo ",I+1,"º : ",M[I])
+							escreva("\nValor do ",I+1,"º : ",V[I],"$")
+							escreva("\nCor do ", I+1 ,"º : ", C[I])
+							escreva("\nEstado : ",A[I],"\n\n")
+							D++
 						
 							}
 					}
 
-				se(C!=0){
+				se(D!=0){
 				
 					faca{
 						//Para usuario escolhe o Kart
@@ -402,18 +403,19 @@ programa
 						I--
 					
 						//Ser digita um numero invalido
-						se(I<0 ou I>14 ou A[I]=='A'){
+						se(I<0 ou I>14 ou A[I]=='A'e m[I]=='M' e V[I]==0.0 e M[I]=="----------"){
 						
 							escreva("\nNumero imvalido")
 						
 							}
 				
-				}enquanto(I<0 ou I>14 ou A[I]=='A')
+				}enquanto(I<0 ou I>14 ou A[I]=='A' e m[I]=='M' e V[I]==0.0 e M[I]=="----------")
 
 				//Mostra os dados do Kart
-				escreva("\nModelo ",I+1,"º :",M[I])
-				escreva("\nValor do ",I+1,"º :",V[I],"$")
-				escreva("\nEstado :",A[I])
+				escreva("\nModelo ",I+1,"º : ",M[I])
+				escreva("\nValor do ",I+1,"º : ",V[I],"$")
+				escreva("\nCor do",I+1,"º : ",C[I])
+				escreva("\nEstado : ",A[I])
 
 
 				faca{
@@ -435,7 +437,7 @@ programa
 					senao se(R=='N'){
 	
 						limpa()
-						AlugraKart(V,M,A,m,Q)
+						
 					
 						}
 						//Ser for digitado um letra que não e valida
@@ -451,7 +453,8 @@ programa
 				senao{
 				
 				limpa()
-				escreva("\nTodos os Kart foi Locado\n")
+				escreva("\nTodos os Kart foi Locado ou não cadastado\n")
+				R='E'
 				
 				}
 			}enquanto(R!='E')
@@ -576,8 +579,8 @@ programa
 			escreva("\n8 - Kart que mais gerou ganhos")
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados")
 			escreva("\n10 - Locação de circuito")
-			escreva("\n11 - Atualizar dia")
-			escreva("\n12 - Sair do programa")
+			escreva("\n11 - Atualizar dia*")
+			escreva("\n12 - Sair do programa*")
 			escreva("\nEscolha uma opção:")
 			
 			leia(opcao)
@@ -617,7 +620,7 @@ programa
 				}
 			senao se(opcao == 6){
 				
-				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado)
+				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado,corkart)
 				
 				}
 			senao se(opcao == 7){
