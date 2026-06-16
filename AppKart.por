@@ -1,6 +1,6 @@
 programa
 {
-	funcao retorna_kart(cadeia corKart[], cadeia modeloKart[], caracter Status[]){
+	funcao retornar_kart(cadeia corKart[], cadeia modeloKart[], caracter Status[]){
 		
 		cadeia devolver [15]
 		inteiro i=0 , selecione , D=0
@@ -9,9 +9,9 @@ programa
 			
 			se(Status[i]=='A' e modeloKart[i]!="----------" e corKart[i]!="-----"){
 				
-				escreva("\nStatus do Kart: ",  i+1, "alugado\n")
-				escreva("\nO modelo do kart é : ", modeloKart[i])
-				escreva("\nCor do kart é : ", corKart[i])
+				escreva("\nStatus do Kart: ",  i+1, " alugado\n")
+				escreva("\nO modelo do kart é: ", modeloKart[i])
+				escreva("\nCor do kart é: ", corKart[i])
 				
 				D++
 				}
@@ -38,28 +38,28 @@ programa
 				}
 				senao{
 					
-					escreva("\n\nNão tem Kart cadastado ou todos livre\n")
+					escreva("\n\nNão tem kart cadastrado ou todos livres\n")
 					
 					}
 						
 						
 }
 
-   funcao CadastarKart(cadeia modelokart[] , cadeia corkart[] , real valordeLocacao[] , caracter Status[]){
+   funcao cadastrarKart(cadeia modeloKart[] , cadeia corKart[] , real valorDeLocacao[] , caracter Status[]){
     	
    		inteiro I 
    		
    		para(I = 0 ; I < 15 ;I++){
 
-				//Para verifica se estão ou nao livre
+				// Para verificar se estão ou não livres
 				
-				//Se sim 
-				se(modelokart[I] == "----------" ou valordeLocacao[I] == 0){
+				// Se sim 
+				se(modeloKart[I] == "----------" ou valorDeLocacao[I] == 0){
 					
-					//Mostar quais estão livres
+					// Mostrar quais estão livres
 					
-					escreva ("\nNo Espaço ",I+1," esta livre para novo cadastro\n")
-					//Validação livre
+					escreva ("\nNo espaço ",I+1," está livre para novo cadastro\n")
+					// Validação livre
 					
 				
 					}
@@ -67,38 +67,38 @@ programa
    				
    		faca{
    			
-			escreva("Qual kart deseja cadastar?(Digite numeros) ")
+			escreva("Qual kart deseja cadastrar? (Digite números) ")
 			leia(I)
 			
 			I--
       
-      		se(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
+      		se(I < 0 ou I > 14 ou modeloKart[I] != "----------" e valorDeLocacao[I] != 0.0){
       	
-				escreva("\nPosição invalida\n")
+				escreva("\nPosição inválida\n")
         
       			}
       			
-   		}enquanto(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] !=0.0)
+   		}enquanto(I < 0 ou I > 14 ou modeloKart[I] != "----------" e valorDeLocacao[I] !=0.0)
       
         escreva("Modelo do kart:\n ")
-        leia(modelokart[I])
+        leia(modeloKart[I])
         
         escreva("Cor do kart:\n ")
-        leia(corkart[I])
+        leia(corKart[I])
         
         faca{
         	
         		escreva("Valor de locação do kart:\n ")
-        		leia(valordeLocacao[I])
+        		leia(valorDeLocacao[I])
         		
-        		se(valordeLocacao[I]<=0){
+        		se(valorDeLocacao[I]<=0){
         			
-        			escreva("\nNumero invalido\n")
+        			escreva("\nNúmero inválido\n")
         			
         			}
 
         		
-  		 }enquanto(valordeLocacao[I]<=0)
+  		 }enquanto(valorDeLocacao[I]<=0)
   		 
         Status[I] = 'L'
       
@@ -107,7 +107,7 @@ programa
     }
 
     
-    funcao listarKartsDisponiveis(cadeia modelokart[],cadeia corkart[],real valordeLocacao[],caracter Status[]){
+    funcao listarKartsDisponiveis(cadeia modeloKart[], cadeia corKart[], real valorDeLocacao[], caracter Status[]){
     	
 	inteiro I, encontrou = 0
       
@@ -115,11 +115,11 @@ programa
        
 	para(I = 0; I < 15;I++){
       	
-		se(Status[I] == 'L' e modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
+		se(Status[I] == 'L' e modeloKart[I] != "----------" e valorDeLocacao[I] != 0.0){
         	
-			escreva("\nModelo: ", modelokart[I])
-			escreva("\nCor : ", corkart[I])
-			escreva("\nValor : ", valordeLocacao[I])
+			escreva("\nModelo: ", modeloKart[I])
+			escreva("\nCor: ", corKart[I])
+			escreva("\nValor: ", valorDeLocacao[I])
 			escreva("\nStatus: ", Status[I],"\n\n")
 			
 			encontrou = 1
@@ -137,216 +137,216 @@ programa
     }
 
 
-		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[],cadeia C[]){
-		//Declaração  de variaveis
+		funcao menuDeAtualizacao(real V[] , cadeia M[], caracter A[], caracter m[], cadeia C[]){
+		// Declaração de variáveis
 		
-		//Para contole do Vetores
+		// Para controle dos vetores
 		inteiro I
 		
-		//Para escolhas 
+		// Para escolhas 
 		caracter R
 
-		//Para sai somete se o usuario quiser
+		// Sai somente se o usuário quiser
 		faca{
 			
-			//Se Usuario Ser não for o Kart desejado para atualiza
+			// Se o usuário não for o kart desejado para atualizar
 			faca{
 			
-				//Para cado a pessoa digita uma numero não desejado 
+				// Para caso a pessoa digitar um número não desejado 
 				faca{
 				
-					//Para Mostra o Valro o Modelo de todos dos Kart
+					// Para mostrar o valor e o modelo de todos os karts
 					para(I=0 ; I<15 ;I++){
 					
-						//*I+1* por comesa em 0 é não em 1
+						// *I+1* pois começa em 0 e não em 1
 					
-						escreva("\n\nModelo do ", I+1 ,"º Kart : " ,M[I])
-						escreva("\nValor do ", I+1 ,"º Kart :",V[I],"$")
-						escreva("\nCor do ", I+1 ,"º Kart :",C[I])
-						escreva("\nEstado de manutenção do Kart:",m[I],"\n\n")
+						escreva("\n\nModelo do ", I+1 ,"º Kart: " ,M[I])
+						escreva("\nValor do ", I+1 ,"º Kart: ",V[I],"$")
+						escreva("\nCor do ", I+1 ,"º Kart: ",C[I])
+						escreva("\nEstado de manutenção do kart: ",m[I],"\n\n")
 						
 						
 						}
 					
-					//Para ler qual Kart que
-					escreva("\nQual Kart goataria de atualisa os Dados(Somente numeros) : ")
+					// Para ler qual kart o usuário quer
+					escreva("\nQual kart gostaria de atualizar os dados? (Somente números): ")
 					leia(I)
 				
-					//Por começa em 0 e não em 1
+					// Pois começa em 0 e não em 1
 					I--
 				
-					//Ser for digitado valor um valido
+					// Se for digitado um valor inválido
 					se(I<0 ou I>14){
 				
 						limpa()
-						escreva("Numero Invalido\n\n")
+						escreva("Número inválido\n\n")
 				
 					}
 		
-			}enquanto(I<0 ou I>14)//Para caso a pessoa digita um numero não desejado 
+			}enquanto(I<0 ou I>14) // Para caso a pessoa digitar um número não desejado 
 
-				//Fica repitindo ate o usuario digita um valor valido
+				// Fica repetindo até o usuário digitar um valor válido
 				faca{
 				
 					limpa()
-					//Mostra o modelo novamente para o usuario
+					// Mostra o modelo novamente para o usuário
 					
-					escreva("Modelo : " , M[I])
-					escreva("\nValro : " , V[I],"$")
-					escreva("\nCor do Kart :",C[I])
-					escreva("\nEstado de manutenção do Kart:",m[I])
+					escreva("Modelo: " , M[I])
+					escreva("\nValor: " , V[I],"$")
+					escreva("\nCor do kart: ",C[I])
+					escreva("\nEstado de manutenção do kart: ",m[I])
 				
-					//Para confirmar 
-					escreva("\n\nEste e o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
+					// Para confirmar 
+					escreva("\n\nEste é o kart desejado?\n(S) Sim  (N) Não  (E) Sair: ")
 					leia(R)
 
-					//Ser for digitado um valor não desejado
+					// Se for digitado um valor não desejado
 					se(R!='S' e R!='N' e R!='E'){
 					
 						limpa()
-						escreva("\nLetra linvalida")
+						escreva("\nLetra inválida")
 			
 						}
 			
-					}enquanto(R!='S' e R!='N'e R!='E')//Fica repetido ate o usuario digita um valor valido
+					}enquanto(R!='S' e R!='N' e R!='E') // Fica repetindo até o usuário digitar um valor válido
 				
 				limpa()
 					
-				}enquanto(R =='N')//Se Usuario Ser não for o Kart desejado para atualiza
+				}enquanto(R =='N') // Se o usuário não for o kart desejado para atualizar
 		
-			//Vai Por Porgrama de atualisaOsDados
+			// Vai para a função de atualizar os dados
 			se(R =='S'){
 				
-				AtualisaOsDados(V,M,I,m,C)
+				atualizarDados(V,M,I,m,C)
 				
 				
 				}
 			
-			//Senao (Se for o E de Sai )voutra para o menu
+			// Senão (se for o E de sair) volta para o menu
 			senao{
 				
 				limpa()
-				escreva("Saindo do\n\n")
+				escreva("Saindo...\n\n")
 				
 				}
 
-			}enquanto(R!='E')//Para sai somete se o usuario quiser
+			}enquanto(R!='E') // Sai somente se o usuário quiser
 			
 		}
 		
-	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I ,caracter m[],cadeia C[]){
+	funcao atualizarDados(real V[] , cadeia M[], inteiro I , caracter m[], cadeia C[]){
 		
-		//Decaração de varial
+		// Declaração de variáveis
 		
-		//Varial de Repostra
+		// Variável de resposta
 		caracter R
 
-		//Limpa a tela ante de exetuta o porgama
+		// Limpa a tela antes de executar o programa
 		limpa()
 		
-		//So sai ser o usuario escolhe sai
+		// Sai somente se o usuário escolher sair
 		faca{
 			
-			//Ser a repostra for errada
+			// Se a resposta for errada
 			faca{
 				
-				//Modatra os modelo e valor do Kart
-				escreva("Modelo do Kart",I+1,"º :",M[I])
-				escreva("\n\nValor do Kart",I+1,"º :",V[I],"$")
-				escreva("\n\nCor do Kart",I+1,"º :",C[I])
-				escreva("\n\nEstado de manutenção do Kart:",m[I])
+				// Mostra o modelo e valor do kart
+				escreva("Modelo do kart ",I+1,"º: ",M[I])
+				escreva("\n\nValor do kart ",I+1,"º: ",V[I],"$")
+				escreva("\n\nCor do kart ",I+1,"º: ",C[I])
+				escreva("\n\nEstado de manutenção do kart: ",m[I])
 
-				//Para o usuario  muda os dado do Kart
-				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valor (C)Cor Kart (A)Estado de Manutenção (E)Sai\n:")
+				// Para o usuário mudar os dados do kart
+				escreva("\nQual dado deseja alterar?\n(M) Modelo  (V) Valor  (C) Cor do kart  (A) Estado de manutenção  (E) Sair\n:")
 				leia(R)
 				
-				//Ser a Respostra for invalida
+				// Se a resposta for inválida
 				se(R!='M' e R!='V' e R!='C' e R!='E' e R!='A'){
 					
 					limpa()
-					escreva("Letra invalida\n\n")
+					escreva("Letra inválida\n\n")
 					
 					}
 		
-				}enquanto(R!='M' e R!='V' e R!='C' e R!='E' e R!='A')//Ser a repostra for errada
+				}enquanto(R!='M' e R!='V' e R!='C' e R!='E' e R!='A') // Se a resposta for errada
 
-			//Ser for para atualiza o Modelo
+			// Se for para atualizar o modelo
 			se(R=='M'){	
 					
 				limpa()
-				escreva("\nQual é modelo atualizado:")
+				escreva("\nQual é o modelo atualizado: ")
 				leia(M[I])
 				
 				}
 				
-			//Ser por para atualiza o valor do Kart
+			// Se for para atualizar o valor do kart
 			senao se(R=='V'){		
 				
-				escreva("\nQual é novo valor:")
+				escreva("\nQual é o novo valor: ")
 				leia(V[I])
 				
 				
 				}
 			senao se(R == 'C' ){
 				
-				escreva("\nQual é novo Cor do Kart:")
+				escreva("\nQual é a nova cor do kart: ")
 				leia(C[I])
 				
 				}
 
-			//Se for para muda os estado do kart de (U)usavel para (M)manutensão e vise veso
+			// Se for para mudar o estado do kart de (U) utilizável para (M) manutenção e vice-versa
 			senao se(R=='A'){
 
-				//De usavel para manuteção
+				// De utilizável para manutenção
 				se(m[I]=='U'){
 					
 					limpa()
-					escreva("Estado mudado de usável para manuteção")
+					escreva("Estado mudado de utilizável para manutenção")
 					m[I]='M'
 					
 					}
-				//De Manuteção para usavel
+				// De manutenção para utilizável
 				senao{
 					limpa()
-					escreva("Estado mudado de manuteção para usável ")
+					escreva("Estado mudado de manutenção para utilizável")
 					m[I]='U'
 					
 					}	
 				}
 			
-			}enquanto(R!='E')//So sai ser o usuario escolhe sai
+			}enquanto(R!='E') // Sai somente se o usuário escolher sair
 			
 		}
 
-		funcao listarKartsLocados(caracter s[], cadeia modelokart[]){
+		funcao listarKartsLocados(caracter s[], cadeia modeloKart[]){
 			inteiro i
 			
 			para(i=0; i<15; i++){
-			se(s[i] == 'L'){	
+			se(s[i] == 'A'){	
 
-				escreva("Kart ", i+1, " ", modelokart[i], " está Locado\n")
-				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+				escreva("Kart ", i+1, " ", modeloKart[i], " está locado\n")
+				// Colocar contador de números na função do Gabriel para que eu possa pegar a posição deles
 
-			}senao se(s[i] != 'L'){	
+			}senao se(s[i] == 'L'){	
 
-				escreva("Kart ", i+1, " não está disponivel\n")
+				escreva("Kart ", i+1, " está disponível\n")
 			}
 				
 		}
 			
 			
 		}
-		funcao listarKartsManutencao(caracter s[], cadeia modelokart[]){
+		funcao listarKartsManutencao(caracter s[], cadeia modeloKart[]){
 			inteiro i
 			
 			para(i=0; i<15; i++){
 			se(s[i] == 'M'){	
 
 				escreva("Kart ", i+1, " está em manutenção\n")
-				//colocar contador de numeros na funcao do gabriel para eu que possa pegar a posição deles
+				// Colocar contador de números na função do Gabriel para que eu possa pegar a posição deles
 			}senao se(s[i] == 'L'){	
 
-				escreva("Kart ", i+1, " está disponivel\n")
+				escreva("Kart ", i+1, " está disponível\n")
 
 			}
 			
@@ -356,15 +356,15 @@ programa
 		
 	
   
-  funcao lista(caracter status[],cadeia modelokart[], real valordeLocacao[]){
+  funcao lista(caracter status[], cadeia modeloKart[], real valorDeLocacao[]){
   	inteiro i
   	
   	para(i = 0; i < 15; i++){
   		se(status[i] == 'L'){
 
-  			escreva("O status do kart é : ", status[i])
-  			escreva("O modelo é : ", modelokart[i])
-  			escreva("O valor de locação é : ", valordeLocacao[i])
+  			escreva("O status do kart é: ", status[i])
+  			escreva("O modelo é: ", modeloKart[i])
+  			escreva("O valor de locação é: ", valorDeLocacao[i])
   			
   			
   		}
@@ -372,24 +372,24 @@ programa
   	}
   }
   
-  		//Funcao para alugra Kart
-		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[],cadeia C[]){
+  		// Função para alugar kart
+		funcao alugarKart(real V[] , cadeia M[] , caracter A[], caracter m[], inteiro Q[], cadeia C[]){
 			
 			inteiro I,D=0
 			caracter R='S'
 
-			escreva("\nLista como Kart Livres")
+			escreva("\nLista de karts livres")
 			faca{
 				
-				//Mostra na tela os Kart livres
+				// Mostra na tela os karts livres
 				para(I=0;I<15;I++){
 					
 						se(A[I]=='L' e m[I]=='L' e V[I]!=0.0 e M[I]!="----------"){
 						
-							escreva("\nModelo ",I+1,"º : ",M[I])
-							escreva("\nValor do ",I+1,"º : ",V[I],"$")
-							escreva("\nCor do ", I+1 ,"º : ", C[I])
-							escreva("\nEstado : ",A[I],"\n\n")
+							escreva("\nModelo ",I+1,"º: ",M[I])
+							escreva("\nValor do ",I+1,"º: ",V[I],"$")
+							escreva("\nCor do ", I+1 ,"º: ", C[I])
+							escreva("\nEstado: ",A[I],"\n\n")
 							D++
 						
 							}
@@ -398,33 +398,33 @@ programa
 				se(D!=0){
 				
 					faca{
-						//Para usuario escolhe o Kart
-						escreva("\nQual Kart goataria de alugra(Digite o numero):")
+						// Para o usuário escolher o kart
+						escreva("\nQual kart gostaria de alugar? (Digite o número): ")
 						leia(I)
 						I--
 					
-						//Ser digita um numero invalido
+						// Se digitar um número inválido
 						se(I<0 ou I>14 ou A[I]=='A' ou m[I]=='M' ou V[I]==0.0 e M[I]=="----------"){
 						
-							escreva("\nNumero imvalido")
+							escreva("\nNúmero inválido")
 						
 							}
 				
 				}enquanto(I<0 ou I>14 ou A[I]=='A' ou m[I]=='M' ou V[I]==0.0 e M[I]=="----------")
 
-				//Mostra os dados do Kart
-				escreva("\nModelo ",I+1,"º : ",M[I])
-				escreva("\nValor do ",I+1,"º : ",V[I],"$")
-				escreva("\nCor do",I+1,"º : ",C[I])
-				escreva("\nEstado : ",A[I])
+				// Mostra os dados do kart
+				escreva("\nModelo ",I+1,"º: ",M[I])
+				escreva("\nValor do ",I+1,"º: ",V[I],"$")
+				escreva("\nCor do ",I+1,"º: ",C[I])
+				escreva("\nEstado: ",A[I])
 
 
 				faca{
-					//So para confima
-					escreva("\nE este Kart ?\n(S)sim\n(N)não\n(E)Sai\n:")
+					// Só para confirmar
+					escreva("\nÉ este kart?\n(S) Sim\n(N) Não\n(E) Sair\n:")
 					leia(R)
 
-					//Se sim muda os estado de livre para alugrado
+					// Se sim, muda o estado de livre para alugado
 					se(R=='S'){
 						
 						Q[I]=Q[I]+1
@@ -434,17 +434,17 @@ programa
 			
 						}
 						
-					//senao a função fenisia a função
+					// Senão, a função encerra
 					senao se(R=='N'){
 	
 						limpa()
 						
 					
 						}
-						//Ser for digitado um letra que não e valida
+						// Se for digitada uma letra inválida
 						senao se(R!='S' e R!='N' e R!='E' ){
 				
-						escreva("\nletra invalida")
+						escreva("\nLetra inválida")
 			
 						}
 
@@ -454,34 +454,34 @@ programa
 				senao{
 				
 				limpa()
-				escreva("\nTodos os Kart foi Locado ou não cadastado\n")
+				escreva("\nTodos os karts foram locados ou não estão cadastrados\n")
 				R='E'
 				
 				}
 			}enquanto(R!='E')
 			
-			//Se não over crte livre
+			// Se não houver kart livre
 			
 				
 			}
 
-			funcao real receitaLucroDia(inteiro QuantasVezesLocado[], real valordeLocacao[], real lucroLocacao){
+			funcao real receitaLucroDia(inteiro quantasVezesLocado[], real valorDeLocacao[], real lucroLocacao){
 				
 				real valorCircuito=200.0, receitaKarts=0.0, lucroKarts=0.0, lucroDiario=0.0
 				
-				//pra calcular receita 
+				// Para calcular a receita 
 				para(inteiro i=0;i<15;i++){
 					
-						receitaKarts=receitaKarts+(valordeLocacao[i]*QuantasVezesLocado[i])
+						receitaKarts=receitaKarts+(valorDeLocacao[i]*quantasVezesLocado[i])
 						
 					}
 					
 					escreva("O total da receita gerada pelos karts é: ",receitaKarts,"\n") 
 					
-					//pra calcular o lucro dos Karts 
+					// Para calcular o lucro dos karts 
 				para(inteiro i=0;i<15;i++){
 					
-						lucroKarts=lucroKarts+(valordeLocacao[i]*QuantasVezesLocado[i]*0.3)
+						lucroKarts=lucroKarts+(valorDeLocacao[i]*quantasVezesLocado[i]*0.3)
 						
 					}
 					
@@ -497,23 +497,23 @@ programa
     					inteiro resposta
     					
     					faca{
-    						escreva("Digite o tempo de locação em horas")
+    						escreva("Digite o tempo de locação em horas: ")
     						leia(tempo)
-    						// validar entrada (evitar tempo negativo)
+    						// Validar entrada (evitar tempo negativo)
     						
     						enquanto(tempo<0){
     							
-      						escreva("Opção inválida!Digite novamente: ")
+      						escreva("Opção inválida! Digite novamente: ")
       						leia(tempo)
       						
     							}
-    							//processamento valortotal, receitaDiaria 
+    							// Processamento: valorTotal, receitaDiaria 
     							valorTotal=valorCircuito*tempo
     							
     							lucroLocacao=lucroLocacao+(valorTotal*0.7)
     							
-    							escreva("O valor dessa locacao é: ",valorTotal)
-    							escreva("\nDeseja cadastrar outra locação?\n1-Sim\n2-nao")
+    							escreva("O valor dessa locação é: ",valorTotal)
+    							escreva("\nDeseja cadastrar outra locação?\n1 - Sim\n2 - Não")
     							leia(resposta)
     							
     						}enquanto(resposta==1)
@@ -522,7 +522,7 @@ programa
 				}
 				
 		
-		funcao AtualizaDia(caracter S[] ,cadeia M[] , cadeia C[] ,real V[],inteiro  Q[] ){
+		funcao atualizarDia(caracter S[] , cadeia M[] , cadeia C[] , real V[], inteiro Q[]){
 
 			inteiro I
 			
@@ -533,7 +533,7 @@ programa
 					
 				se(S[I]=='A'){
 					
-					escreva("\n\nKart " , I+1 ," Não foi devovido no fim do dia")
+					escreva("\n\nKart " , I+1 ," não foi devolvido no fim do dia")
 					Q[I]=1
 					
 					}
@@ -544,7 +544,7 @@ programa
 			
 			
 			}
-		funcao GanhosKartMais(real V[] ,inteiro C[]){
+		funcao ganhosKartMais(real V[] , inteiro C[]){
 			
 			inteiro I,G
 			real ganhoMaior=0.0,ganho
@@ -568,40 +568,40 @@ programa
 	funcao inicio(){
 
 			
-	cadeia  corkart[15], modelokart[15]
-     inteiro I,escaso[15],opcao,QuantasVezesLocado[15]
-     real  valordeLocacao[15], valorManutencao = 0.0
+	cadeia  corKart[15], modeloKart[15]
+     inteiro I, escasso[15], opcao, quantasVezesLocado[15]
+     real  valorDeLocacao[15], valorManutencao = 0.0
      real lucroLocacao = 0.0, lucroDiario=0.0, valorCircuito=200.0
-     caracter Status[15],Manutecao[15]
+     caracter Status[15], manutencao[15]
      
 		para(I=0 ;I<15 ;I++){
 
-			modelokart[I]="----------"
-			corkart[I]="-----"
-			valordeLocacao[I]=0.0
+			modeloKart[I]="----------"
+			corKart[I]="-----"
+			valorDeLocacao[I]=0.0
 			Status[I]='L'
-			escaso[I]=0
-			Manutecao[I]='L'
-			QuantasVezesLocado[I]=0
+			escasso[I]=0
+			manutencao[I]='L'
+			quantasVezesLocado[I]=0
 		
 		}
 		faca{
 			
 			faca{
 				
-			escreva("\n1 - Cadastrar um Kart*")
-			escreva("\n2 - Lista Karts disponiveis*")
-			escreva("\n3 - Listar Karts locados*")
-			escreva("\n4 - Listar Karts em manutenção*")
-			escreva("\n5 - Atualizar dados do Kart*")
-			escreva("\n6 - Alugar um Kart*")
-			escreva("\n7 - Devolver um Kart")
+			escreva("\n1 - Cadastrar um kart")
+			escreva("\n2 - Listar karts disponíveis")
+			escreva("\n3 - Listar karts locados")
+			escreva("\n4 - Listar karts em manutenção")
+			escreva("\n5 - Atualizar dados do kart")
+			escreva("\n6 - Alugar um kart")
+			escreva("\n7 - Devolver um kart")
 			escreva("\n8 - Kart que mais gerou ganhos")
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados")
 			escreva("\n10 - Locação de circuito")
-			escreva("\n11 - Atualizar dia*")
-			escreva("\n12 - Sair do programa*")
-			escreva("\nEscolha uma opção:")
+			escreva("\n11 - Atualizar dia")
+			escreva("\n12 - Sair do programa")
+			escreva("\nEscolha uma opção: ")
 			
 			leia(opcao)
 
@@ -617,49 +617,49 @@ programa
 			
 			se(opcao == 1){
 				
-				CadastarKart(modelokart,corkart,valordeLocacao,Status)
+				cadastrarKart(modeloKart, corKart, valorDeLocacao, Status)
 				
 			}senao se(opcao ==2){
 
-				listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
+				listarKartsDisponiveis(modeloKart, corKart, valorDeLocacao, Status)
 
 				
 			}senao se(opcao ==3){
 
-				listarKartsLocados(Status, modelokart)
+				listarKartsLocados(Status, modeloKart)
 
 			}senao se(opcao == 4){
 
-				listarKartsManutencao(Manutecao, modelokart)
+				listarKartsManutencao(manutencao, modeloKart)
 
 			}senao se(opcao == 5){
 
-				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao,corkart)
+				 menuDeAtualizacao(valorDeLocacao, modeloKart, Status, manutencao, corKart)
 				
 			}senao se(opcao == 6){
 				
-				AlugraKart(valordeLocacao,modelokart,Status,Manutecao,QuantasVezesLocado,corkart)
+				alugarKart(valorDeLocacao, modeloKart, Status, manutencao, quantasVezesLocado, corKart)
 				
 			}senao se(opcao == 7){
 				
-				retorna_kart(corkart, modelokart, Status)
+				retornar_kart(corKart, modeloKart, Status)
 				
 			}senao se(opcao == 8){
 				
-				GanhosKartMais(valordeLocacao,QuantasVezesLocado)
+				ganhosKartMais(valorDeLocacao, quantasVezesLocado)
 				
 			}senao se(opcao == 9){
 				
-					lucroDiario=receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
+					lucroDiario=receitaLucroDia(quantasVezesLocado, valorDeLocacao, lucroDiario)
 					escreva("O lucro diário é: ",lucroDiario)
 					
 			}senao se (opcao ==10){
 				
-					locacaoCircuito(lucroLocacao,valorCircuito)
+					locacaoCircuito(lucroLocacao, valorCircuito)
 					
 			}senao se(opcao == 11){
 				
-				AtualizaDia(Status,modelokart,corkart,valordeLocacao,QuantasVezesLocado)
+				atualizarDia(Status, modeloKart, corKart, valorDeLocacao, quantasVezesLocado)
 				
 				}
 				
