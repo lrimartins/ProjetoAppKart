@@ -318,21 +318,23 @@ programa
 			
 		}
 
-		funcao listarKartsLocados(caracter s[], cadeia modeloKart[]){
-			inteiro i
+		funcao listarKartsLocados(caracter s[], cadeia modeloKart[],real Valor[]){
+			inteiro I,D=0
 			
-			para(i=0; i<15; i++){
-			se(s[i] == 'A'){	
+			para(I=0; I<15; I++){
+				se(s[I]=='A' e Valor[I] != 0.0 e modeloKart[I]!="----------"){	
 
-				escreva("Kart ", i+1, " ", modeloKart[i], " está locado\n")
+				escreva("Kart ", I+1, " ", modeloKart[I], " Agudados\n")
 				// Colocar contador de números na função do Gabriel para que eu possa pegar a posição deles
+				D++
 
-			}senao se(s[i] == 'L'){	
-
-				escreva("Kart ", i+1, " está disponível\n")
 			}
+						
+		}se(D==0){
 				
-		}
+				escreva("\n\nNão tem Kart Cadadastrado\n\n")
+				
+				}	
 			
 			
 		}
@@ -626,7 +628,7 @@ programa
 				
 			}senao se(opcao ==3){
 
-				listarKartsLocados(Status, modeloKart)
+				listarKartsLocados(Status, modeloKart,valorDeLocacao)
 
 			}senao se(opcao == 4){
 
