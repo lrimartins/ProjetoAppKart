@@ -518,7 +518,7 @@ programa
 			valordeLocacao[I]=0.0
 			Status[I]='L'
 			escaso[I]=0
-			Manutecao[I]='L'
+			Manutecao[I]='M'
 			QuantasVezesLocado[I]=0.0
 		
 		}
@@ -526,11 +526,11 @@ programa
 			
 			faca{
 				
-			escreva("\n1 - Cadastrar um Kart")
-			escreva("\n2 - Lista Karts disponiveis")
-			escreva("\n3 - Listar Karts locados")
-			escreva("\n4 - Listar Karts em manutenção")
-			escreva("\n5 - Atualizar dados do Kart")
+			escreva("\n1 - Cadastrar um Kart*")
+			escreva("\n2 - Lista Karts disponiveis*")
+			escreva("\n3 - Listar Karts locados*")
+			escreva("\n4 - Listar Karts em manutenção*")
+			escreva("\n5 - Atualizar dados do Kart*")
 			escreva("\n6 - Alugar um Kart")
 			escreva("\n7 - Devolver um Kart")
 			escreva("\n8 - Kart que mais gerou ganhos")
@@ -554,11 +554,11 @@ programa
 			
 			se(opcao == 1){
 				
-      			  CadastarKart(modelokart,corkart,valordeLocacao,Status)
+				CadastarKart(modelokart,corkart,valordeLocacao,Status)
 				
 			}senao se(opcao ==2){
 
-        			listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
+				listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
 
 				
 			}senao se(opcao ==3){
@@ -567,7 +567,7 @@ programa
 
 			}senao se(opcao == 4){
 
-				listarKartsManutencao(Status, modelokart)
+				listarKartsManutencao(Manutecao, modelokart)
 
 			}
 			senao se(opcao == 5){
