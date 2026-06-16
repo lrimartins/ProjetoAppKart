@@ -44,25 +44,27 @@ programa
 				//Para verifica se estão ou nao livre
 				
 				//Se sim 
-				se(modelokart[I] == "----------" e valordeLocacao[I] == 0.0){
+				se(modelokart[I] == "----------" ou valordeLocacao[I] == 0){
 					
 					//Mostar quais estão livres
-					escreva ("\nNo Espaço ",I+1," esta livre para novo cadastro\n")
 					
+					escreva ("\nNo Espaço ",I+1," esta livre para novo cadastro\n")
 					//Validação livre
 					
 				
 					}
    				}
+   				
    		faca{
    			
-			escreva("Qual kart deseja cadastar? ")
+			escreva("Qual kart deseja cadastar?(Digite numeros) ")
 			leia(I)
+			
 			I--
       
-      	se(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
+      		se(I < 0 ou I > 14 ou modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
       	
-			escreva("Posição invalida\n")
+				escreva("\nPosição invalida\n")
         
       			}
       			
@@ -74,9 +76,20 @@ programa
         escreva("Cor do kart:\n ")
         leia(corkart[I])
         
-        escreva("Valor de locação do kart:\n ")
-        leia(valordeLocacao[I])
-        
+        faca{
+        	
+        		escreva("Valor de locação do kart:\n ")
+        		leia(valordeLocacao[I])
+        		
+        		se(valordeLocacao[I]<0){
+        			
+        			escreva("\nNumero invalido\n")
+        			
+        			}
+
+        		
+  		 }enquanto(valordeLocacao[I]<0)
+  		 
         Status[I] = 'L'
       
 
@@ -97,7 +110,7 @@ programa
         escreva("\nModelo: ", modelokart[I])
         escreva("\nCor : ", corkart[I])
         escreva("\nValor : ", valordeLocacao[I])
-        escreva("\nStatus: ", Status[I])
+        escreva("\nStatus: ", Status[I],"\n\n")
         encontrou = 1
 
          }
@@ -474,19 +487,21 @@ programa
      real lucroLocacao = 0.0, lucroDiario=0.0, valorCircuito=200.0
      caracter Status[15],Manutecao[15]
      
-	para(I=0 ;I<15 ;I++){
+		para(I=0 ;I<15 ;I++){
 
-		modelokart[I]="----------"
-		corkart[I]="-----"
-		valordeLocacao[I]=10.0
-		Status[I]='L'
-		escaso[I]=0
-		Manutecao[I]='L'
-		QuantasVezesLocado[I]=0.0
+			modelokart[I]="----------"
+			corkart[I]="-----"
+			valordeLocacao[I]=0.0
+			Status[I]='L'
+			escaso[I]=0
+			Manutecao[I]='L'
+			QuantasVezesLocado[I]=0.0
 		
 		}
 		faca{
+			
 			faca{
+				
 			escreva("\n1 - Cadastrar um Kart")
 			escreva("\n2 - Lista Karts disponiveis")
 			escreva("\n3 - Listar Karts locados")
@@ -500,6 +515,7 @@ programa
 			escreva("\n11 - Atualizar dia")
 			escreva("\n12 - Sair do programa")
 			escreva("\nEscolha uma opção:")
+			
 			leia(opcao)
 
       
@@ -513,7 +529,8 @@ programa
 			}enquanto(opcao <1 ou opcao >12)
 			
 			se(opcao == 1){
-        CadastarKart(modelokart,corkart,valordeLocacao,Status)
+				
+      			  CadastarKart(modelokart,corkart,valordeLocacao,Status)
 				
 			}senao se(opcao ==2){
 
