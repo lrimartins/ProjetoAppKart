@@ -372,7 +372,7 @@ programa
   	}
   }
   		//Funcao para alugra Kart
-		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],real Q[]){
+		funcao AlugraKart(real V[] ,cadeia M[] ,caracter A[],caracter m[],inteiro Q[]){
 			
 			inteiro I,C=0
 			caracter R='S'
@@ -461,53 +461,93 @@ programa
 				
 			}
 
-			funcao real receitaLucroDia(real QuantasVezesLocado[], real valordeLocacao[], real lucroLocacao){
+			funcao real receitaLucroDia(inteiro QuantasVezesLocado[], real valordeLocacao[], real lucroLocacao){
+				
 				real valorCircuito=200.0, receitaKarts=0.0, lucroKarts=0.0, lucroDiario=0.0
+				
 				//pra calcular receita 
 				para(inteiro i=0;i<15;i++){
+					
 						receitaKarts=receitaKarts+(valordeLocacao[i]*QuantasVezesLocado[i])
+						
 					}
+					
 					escreva("O total da receita gerada pelos karts é: ",receitaKarts,"\n") 
+					
 					//pra calcular o lucro dos Karts 
 				para(inteiro i=0;i<15;i++){
+					
 						lucroKarts=lucroKarts+(valordeLocacao[i]*QuantasVezesLocado[i]*0.3)
+						
 					}
+					
 				lucroDiario = lucroKarts+lucroLocacao
+				
 				retorne lucroDiario
 				}
 
 				
 				funcao real locacaoCircuito(real lucroLocacao, real valorCircuito){
+					
     					real tempo, valorTotal
     					inteiro resposta
+    					
     					faca{
     						escreva("Digite o tempo de locação em horas")
     						leia(tempo)
     						// validar entrada (evitar tempo negativo)
+    						
     						enquanto(tempo<0){
+    							
       						escreva("Opção inválida!Digite novamente: ")
       						leia(tempo)
+      						
     							}
     							//processamento valortotal, receitaDiaria 
     							valorTotal=valorCircuito*tempo
+    							
     							lucroLocacao=lucroLocacao+(valorTotal*0.7)
+    							
     							escreva("O valor dessa locacao é: ",valorTotal)
     							escreva("\nDeseja cadastrar outra locação?\n1-Sim\n2-nao")
     							leia(resposta)
+    							
     						}enquanto(resposta==1)
     						
    						retorne lucroLocacao
 				}
+				
+		
+		funcao AtualizaDia(caracter S[] ,cadeia M[] , cadeia C[] ,real V[],inteiro  Q[] ){
 
+			inteiro I
 			
+			para(I=0 ; I<15 ;I++){
+				
+				Q[I] = 0
+				
+					
+				se(S[I]=='A'){
+					
+					escreva("\n\nKart " , I+1 ," Não foi devovido no fim do dia")
+					Q[I]=1
+					
+					}
+					
+				escreva("\n\n",I," ",Q[I])
+				
+				}
+			
+			
+			}
 
 	
 	funcao inicio(){
 
 			
 	cadeia  corkart[15], modelokart[15]
-     inteiro I,escaso[15],opcao
-     real QuantasVezesLocado[15], valordeLocacao[15], valorManutencao = 0.0
+     inteiro I,escaso[15],opcao,QuantasVezesLocado[15]
+     real  valordeLocacao[15], valorManutencao = 0.0
      real lucroLocacao = 0.0, lucroDiario=0.0, valorCircuito=200.0
      caracter Status[15],Manutecao[15]
      
@@ -518,8 +558,8 @@ programa
 			valordeLocacao[I]=0.0
 			Status[I]='L'
 			escaso[I]=0
-			Manutecao[I]='M'
-			QuantasVezesLocado[I]=0.0
+			Manutecao[I]='L'
+			QuantasVezesLocado[I]=0
 		
 		}
 		faca{
@@ -587,12 +627,21 @@ programa
 				}
 				
 			senao se(opcao == 9){
+				
 					lucroDiario=receitaLucroDia(QuantasVezesLocado, valordeLocacao, lucroDiario)
 					escreva("O lucro diário é: ",lucroDiario)
+					
 					}
 			senao se (opcao ==10){
+				
 					locacaoCircuito(lucroLocacao,valorCircuito)
+					
 					}
+			senao se(opcao == 11){
+				
+				AtualizaDia(Status,modelokart,corkart,valordeLocacao,QuantasVezesLocado)
+				
+				}
 	}enquanto(opcao!=12)
 	}
 }
