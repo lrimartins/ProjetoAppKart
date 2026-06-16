@@ -22,7 +22,7 @@ programa
 					
 					faca{
 						
-						escreva("Qual kart quer devolver: ")
+						escreva("Qual kart deseja devolver: ")
 						leia (selecione)
 						selecione--
 						
@@ -51,7 +51,7 @@ programa
    		
    		para(I = 0 ; I < 15 ;I++){
 
-				// Para verificar se estão ou não livres
+				// Para verificar se os karts estão livres ou não
 				
 				// Se sim 
 				se(modeloKart[I] == "----------" ou valorDeLocacao[I] == 0){
@@ -149,10 +149,10 @@ programa
 		// Sai somente se o usuário quiser
 		faca{
 			
-			// Se o usuário não for o kart desejado para atualizar
+			//Se não for o kart que o usuário deseja atualizar
 			faca{
 			
-				// Para caso a pessoa digitar um número não desejado 
+				// Caso a pessoa digite um número inválido
 				faca{
 				
 					// Para mostrar o valor e o modelo de todos os karts
@@ -200,7 +200,7 @@ programa
 					escreva("\n\nEste é o kart desejado?\n(S) Sim  (N) Não  (E) Sair: ")
 					leia(R)
 
-					// Se for digitado um valor não desejado
+					// Se for digitado um valor inválido
 					se(R!='S' e R!='N' e R!='E'){
 					
 						limpa()
@@ -301,14 +301,14 @@ programa
 				se(m[I]=='U'){
 					
 					limpa()
-					escreva("Estado mudado de utilizável para manutenção")
+					escreva("Estado mudado de utilizável para manutenção ")
 					m[I]='M'
 					
 					}
 				// De manutenção para utilizável
 				senao{
 					limpa()
-					escreva("Estado mudado de manutenção para utilizável")
+					escreva("Estado mudado de manutenção para utilizável ")
 					m[I]='U'
 					
 					}	
