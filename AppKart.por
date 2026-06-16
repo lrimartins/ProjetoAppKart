@@ -3,27 +3,37 @@ programa
 	funcao retorna_kart(cadeia corKart[], cadeia modeloKart[], caracter Status[]){
 		
 		cadeia devolver [15]
-		inteiro i=0, selecione,D=0
+		inteiro i=0 , selecione , D=0
 
 		para (i=0; i<15; i++){
+			
 			se(Status[i]=='A' e modeloKart[i]!="----------" e corKart[i]!="-----"){
+				
 				escreva("\nStatus do Kart: ",  i+1, "alugado\n")
 				escreva("\nO modelo do kart é : ", modeloKart[i])
 				escreva("\nCor do kart é : ", corKart[i])
+				
 				D++
-					}
 				}
+					
+			}
+			
 				se(D>0){
+					
 					faca{
+						
 						escreva("Qual kart quer devolver: ")
 						leia (selecione)
 						selecione--
+						
 							se(selecione<0 ou selecione>14){
 							
 								escreva("\nNúmero inválido\n")
 							
 								}
+								
 							}enquanto(selecione<0 ou selecione>14)
+							
 							Status[selecione] = 'L'
 				}
 				senao{
@@ -81,14 +91,14 @@ programa
         		escreva("Valor de locação do kart:\n ")
         		leia(valordeLocacao[I])
         		
-        		se(valordeLocacao[I]<0){
+        		se(valordeLocacao[I]<=0){
         			
         			escreva("\nNumero invalido\n")
         			
         			}
 
         		
-  		 }enquanto(valordeLocacao[I]<0)
+  		 }enquanto(valordeLocacao[I]<=0)
   		 
         Status[I] = 'L'
       
@@ -99,30 +109,35 @@ programa
     
     funcao listarKartsDisponiveis(cadeia modelokart[],cadeia corkart[],real valordeLocacao[],caracter Status[]){
     	
-      inteiro I, encontrou = 0
+	inteiro I, encontrou = 0
       
-       escreva("\n--- LISTA DE KARTS DISPONÍVEIS ---\n")
+	escreva("\n--- LISTA DE KARTS DISPONÍVEIS ---\n")
        
-      para(I = 0; I < 15;I++){
+	para(I = 0; I < 15;I++){
       	
-        se(Status[I] == 'L' e modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
+		se(Status[I] == 'L' e modelokart[I] != "----------" e valordeLocacao[I] != 0.0){
         	
-        escreva("\nModelo: ", modelokart[I])
-        escreva("\nCor : ", corkart[I])
-        escreva("\nValor : ", valordeLocacao[I])
-        escreva("\nStatus: ", Status[I],"\n\n")
-        encontrou = 1
+			escreva("\nModelo: ", modelokart[I])
+			escreva("\nCor : ", corkart[I])
+			escreva("\nValor : ", valordeLocacao[I])
+			escreva("\nStatus: ", Status[I],"\n\n")
+			
+			encontrou = 1
 
-         }
-      }
-       se(encontrou == 0){
-        escreva("\nNenhum kart cadastrado ou disponível!\n")
+				}
+         
+			}
+			
+	se(encontrou == 0){
+       	
+		escreva("\nNenhum kart cadastrado ou disponível!\n")
+        
        }
 
     }
 
 
-		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[]){
+		funcao MenuDeAtualizacao(real V[] ,cadeia M[],caracter A[],caracter m[],cadeia C[]){
 		//Declaração  de variaveis
 		
 		//Para contole do Vetores
@@ -146,15 +161,15 @@ programa
 						//*I+1* por comesa em 0 é não em 1
 					
 						escreva("\n\nModelo do ", I+1 ,"º Kart : " ,M[I])
-					
-						escreva("\n\nValor do ", I+1 ,"º Kart :",V[I],"$")
-
-						escreva("\n\nEstado de manutenção do Kart:",m[I])
+						escreva("\nValor do ", I+1 ,"º Kart :",V[I],"$")
+						escreva("\nCor do ", I+1 ,"º Kart :",C[I])
+						escreva("\nEstado de manutenção do Kart:",m[I],"\n\n")
+						
 						
 						}
 					
 					//Para ler qual Kart que
-					escreva("\nQual Kart goataria de atualisa os Dados : ")
+					escreva("\nQual Kart goataria de atualisa os Dados(Somente numeros) : ")
 					leia(I)
 				
 					//Por começa em 0 e não em 1
@@ -175,9 +190,11 @@ programa
 				
 					limpa()
 					//Mostra o modelo novamente para o usuario
+					
 					escreva("Modelo : " , M[I])
-					escreva("\n\nValro : " , V[I],"$")
-					escreva("\n\nEstado de manutenção do Kart:",m[I])
+					escreva("\nValro : " , V[I],"$")
+					escreva("\nCor do Kart :",C[I])
+					escreva("\nEstado de manutenção do Kart:",m[I])
 				
 					//Para confirmar 
 					escreva("\n\nEste e o Kart desejado ?\n(S) Sim (N) Não (E)Sai:")
@@ -200,7 +217,7 @@ programa
 			//Vai Por Porgrama de atualisaOsDados
 			se(R =='S'){
 				
-				AtualisaOsDados(V,M,I,m)
+				AtualisaOsDados(V,M,I,m,C)
 				
 				
 				}
@@ -217,7 +234,7 @@ programa
 			
 		}
 		
-	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I ,caracter m[]){
+	funcao AtualisaOsDados(real V[] ,cadeia M[],inteiro I ,caracter m[],cadeia C[]){
 		
 		//Decaração de varial
 		
@@ -234,23 +251,24 @@ programa
 			faca{
 				
 				//Modatra os modelo e valor do Kart
-				escreva("Modelo do Kart",I+1,":",M[I])
-				escreva("\n\nValor do Kart",I+1," :",V[I],"$")
+				escreva("Modelo do Kart",I+1,"º :",M[I])
+				escreva("\n\nValor do Kart",I+1,"º :",V[I],"$")
+				escreva("\n\nCor do Kart",I+1,"º :",C[I])
 				escreva("\n\nEstado de manutenção do Kart:",m[I])
 
 				//Para o usuario  muda os dado do Kart
-				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valor (A)Estado de Manutenção (E)Sai\n:")
+				escreva("\nQual dos dado que altera\n(M)Modelo (V)Valor (C)Cor Kart (A)Estado de Manutenção (E)Sai\n:")
 				leia(R)
 				
 				//Ser a Respostra for invalida
-				se(R!='M' e R!='V' e R!='E' e R!='A'){
+				se(R!='M' e R!='V' e R!='C' e R!='E' e R!='A'){
 					
 					limpa()
 					escreva("Letra invalida\n\n")
 					
 					}
 		
-				}enquanto(R!='M' e R!='V' e R!='E' e R!='A')//Ser a repostra for errada
+				}enquanto(R!='M' e R!='V' e R!='C' e R!='E' e R!='A')//Ser a repostra for errada
 
 			//Ser for para atualiza o Modelo
 			se(R=='M'){	
@@ -267,6 +285,12 @@ programa
 				escreva("\nQual é novo valor:")
 				leia(V[I])
 				
+				
+				}
+			senao se(R == 'C' ){
+				
+				escreva("\nQual é novo Cor do Kart:")
+				leia(C[I])
 				
 				}
 
@@ -534,7 +558,7 @@ programa
 				
 			}senao se(opcao ==2){
 
-        listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
+        			listarKartsDisponiveis(modelokart,corkart,valordeLocacao,Status)
 
 				
 			}senao se(opcao ==3){
@@ -548,7 +572,7 @@ programa
 			}
 			senao se(opcao == 5){
 
-				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao)
+				 MenuDeAtualizacao(valordeLocacao,modelokart,Status,Manutecao,corkart)
 				
 				}
 			senao se(opcao == 6){
