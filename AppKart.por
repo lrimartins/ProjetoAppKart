@@ -497,7 +497,7 @@ programa
 						
 					}
 					
-					escreva("O total da receita gerada pelos karts é: ",receitaKarts,"\n") 
+					escreva("\n\nO total da receita gerada pelos karts é: ",receitaKarts,"\n\n") 
 					
 					// Para calcular o lucro dos karts 
 				para(inteiro i=0;i<15;i++){
@@ -512,7 +512,7 @@ programa
 				}
 
 				
-				funcao real locacaoCircuito(real lucroLocacao, real valorCircuito){
+				funcao  locacaoCircuito(real &lucroLocacao, real valorCircuito){
 					
     					real tempo, valorTotal
     					inteiro resposta
@@ -535,11 +535,12 @@ programa
     							
     							escreva("O valor dessa locação é: ",valorTotal)
     							escreva("\nDeseja cadastrar outra locação?\n1 - Sim\n2 - Não")
+    							
     							leia(resposta)
     							
     						}enquanto(resposta==1)
     						
-   						retorne lucroLocacao
+   						
 				}
 				
 		
@@ -670,8 +671,8 @@ programa
 				ganhosKartMais(valorDeLocacao, quantasVezesLocado)
 				
 			}senao se(opcao == 9){
-				
-					lucroDiario=receitaLucroDia(quantasVezesLocado, valorDeLocacao, lucroDiario)
+				//inteiro quantasVezesLocado[], real valorDeLocacao[], real lucroLocacao,real Lucro
+					lucroDiario=receitaLucroDia(quantasVezesLocado, valorDeLocacao,lucroLocacao)
 					escreva("O lucro diário é: ",lucroDiario)
 					
 			}senao se (opcao ==10){
