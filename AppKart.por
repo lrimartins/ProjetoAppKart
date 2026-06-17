@@ -3,15 +3,15 @@ programa
 	funcao retornar_kart(cadeia corKart[], cadeia modeloKart[], caracter Status[]){
 		
 		cadeia devolver [15]
-		inteiro i=0 , selecione , D=0
+		inteiro I=0  , D=0
 
-		para (i=0; i<15; i++){
+		para (I=0; I<15; I++){
 			
-			se(Status[i]=='A' e modeloKart[i]!="----------" e corKart[i]!="-----"){
+			se(Status[I]=='A' e modeloKart[I]!="----------" e corKart[I]!="-----"){
 				
-				escreva("\nStatus do Kart: ",  i+1, " alugado\n")
-				escreva("\nO modelo do kart é: ", modeloKart[i])
-				escreva("\nCor do kart é: ", corKart[i])
+				escreva("\nStatus do Kart: ",  I+1, " alugado\n")
+				escreva("\nO modelo do kart é: ", modeloKart[I])
+				escreva("\nCor do kart é: ", corKart[I])
 				
 				D++
 				
@@ -24,18 +24,18 @@ programa
 					faca{
 						
 						escreva("Qual kart deseja devolver: ")
-						leia (selecione)
-						selecione--
+						leia (I)
+						I--
 						
-							se(selecione<0 ou selecione>14 e Status[selecione]=='A' e modeloKart[selecione]=="----------" e corKart[selecione]=="-----"){
+							se(I<0 ou I>14 ou Status[I]=='L' ou modeloKart[I]=="----------" e corKart[I]=="-----"){
 							
 								escreva("\nNúmero inválido\n")
 							
 								}
 								
-							}enquanto(selecione<0 ou selecione>14 e Status[selecione]=='A' e modeloKart[selecione]=="----------" e corKart[selecione]=="-----")
+							}enquanto(I<0 ou I>14 ou Status[I]=='L' ou modeloKart[I]=="----------" e corKart[I]=="-----")
 							
-							Status[selecione] = 'L'
+							Status[I] = 'L'
 				}
 				senao{
 					
@@ -684,7 +684,7 @@ programa
 					
 			}senao se(opcao == 11){
 				
-				atualizarDia(Status, modeloKart, corKart, valorDeLocacao, quantasVezesLocado)
+					atualizarDia(Status, modeloKart, corKart, valorDeLocacao, quantasVezesLocado)
 				
 				}
 				
