@@ -514,9 +514,9 @@ programa
 				}
 
 				
-				funcao  locacaoCircuito(real &lucroLocacao, real valorCircuito){
+				funcao  locacaoCircuito(real &lucroLocacao, real valorCircuito,real &TempoT){
 					
-    					real tempo, valorTotal
+    					real  valorTotal,tempo
     					caracter resposta
     					
     					faca{
@@ -530,6 +530,8 @@ programa
       						leia(tempo)
       						
     							}
+							TempoT=tempo+TempoT
+    							
     							// Processamento: valorTotal, receitaDiaria 
     							valorTotal=valorCircuito*tempo
     							
@@ -556,7 +558,7 @@ programa
 				}
 				
 		
-		funcao atualizarDia(caracter S[] , cadeia M[] , cadeia C[] , real V[], inteiro Q[]){
+		funcao atualizarDia(caracter S[] , cadeia M[] , cadeia C[] , real V[], inteiro Q[],real &T){
 
 			inteiro I
 			
@@ -571,8 +573,17 @@ programa
 					Q[I]=1
 					
 					}
-					
-				escreva("\n\n",I," ",Q[I])
+				
+				
+				
+				}
+			se(T>24.00){
+
+				escreva("\n\nO circuito esta com locação estendido para alem de hoje")
+				
+				T=T-24	
+				
+				escreva("\nFaltado ",T,"h Para temina")
 				
 				}
 			
@@ -605,7 +616,7 @@ programa
 			
 	cadeia  corKart[15], modeloKart[15]
      inteiro I, escasso[15], opcao, quantasVezesLocado[15]
-     real  valorDeLocacao[15], valorManutencao = 0.0
+     real  valorDeLocacao[15], valorManutencao = 0.0,tempoDeCircuito=0.0
      real lucroLocacao = 0.0, lucroDiario=0.0, valorCircuito=200.0
      caracter Status[15], manutencao[15]
      
@@ -633,8 +644,8 @@ programa
 			escreva("\n7 - Devolver um kart*")
 			escreva("\n8 - Kart que mais gerou ganhos*")
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados*")
-			escreva("\n10 - Locação de circuito")
-			escreva("\n11 - Atualizar dia")
+			escreva("\n10 - Locação de circuito*")
+			escreva("\n11 - Atualizar dias*")
 			escreva("\n12 - Sair do programa*")
 			escreva("\nEscolha uma opção: ")
 			
@@ -690,11 +701,11 @@ programa
 					
 			}senao se (opcao ==10){
 				
-					locacaoCircuito(lucroLocacao, valorCircuito)
+					locacaoCircuito(lucroLocacao, valorCircuito,tempoDeCircuito)
 					
 			}senao se(opcao == 11){
 				
-					atualizarDia(Status, modeloKart, corKart, valorDeLocacao, quantasVezesLocado)
+					atualizarDia(Status, modeloKart, corKart, valorDeLocacao, quantasVezesLocado,tempoDeCircuito)
 				
 				}
 				
