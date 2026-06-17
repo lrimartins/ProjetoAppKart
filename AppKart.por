@@ -517,14 +517,14 @@ programa
 				funcao  locacaoCircuito(real &lucroLocacao, real valorCircuito){
 					
     					real tempo, valorTotal
-    					inteiro resposta
+    					caracter resposta
     					
     					faca{
     						escreva("Digite o tempo de locação em horas: ")
     						leia(tempo)
     						// Validar entrada (evitar tempo negativo)
     						
-    						enquanto(tempo<0){
+    						enquanto(tempo<0 ){
     							
       						escreva("Opção inválida! Digite novamente: ")
       						leia(tempo)
@@ -534,13 +534,23 @@ programa
     							valorTotal=valorCircuito*tempo
     							
     							lucroLocacao=lucroLocacao+(valorTotal*0.7)
-    							
+    							faca{
     							escreva("O valor dessa locação é: ",valorTotal)
-    							escreva("\nDeseja cadastrar outra locação?\n1 - Sim\n2 - Não")
+    							escreva("\nDeseja cadastrar outra locação?\n(S) - Sim\n(N) - Não\n:")
     							
     							leia(resposta)
+
     							
-    						}enquanto(resposta==1)
+    							se(resposta!='S' e resposta!='N'){
+    								
+    								escreva("\n\nLetra Invalida\n\n")
+    								
+    								
+    								}
+    								
+    							}enquanto(resposta!='S' e resposta!='N')
+    							
+    						}enquanto(resposta=='S')
     						
    						
 				}
@@ -620,7 +630,7 @@ programa
 			escreva("\n4 - Listar karts em manutenção*")
 			escreva("\n5 - Atualizar dados do kart")
 			escreva("\n6 - Alugar um kart*")
-			escreva("\n7 - Devolver um kart")
+			escreva("\n7 - Devolver um kart*")
 			escreva("\n8 - Kart que mais gerou ganhos*")
 			escreva("\n9 - Receita e lucro do dia, considerando karts locados*")
 			escreva("\n10 - Locação de circuito")
