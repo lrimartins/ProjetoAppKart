@@ -186,7 +186,7 @@ programa
 					I--
 				
 					// Se for digitado um valor inválido
-					se(I<0 ou I>14 ou M[I]!="----------" ou V[I]!=0.0){
+					se(I<0 ou I>14 e M[I]!="----------" e V[I]!=0.0){
 				
 						limpa()
 						escreva("Número inválido\n\n")
@@ -197,7 +197,7 @@ programa
 						I=0
 						
 						}
-			}enquanto(I<0 ou I>14 ou M[I]!="----------" ou V[I]!=0.0) // Para caso a pessoa digitar um número não desejado 
+			}enquanto(I<0 ou I>14 e M[I]!="----------" e V[I]!=0.0) // Para caso a pessoa digitar um número não desejado 
 			
 				// Fica repetindo até o usuário digitar um valor válido
 				se(D!=0){
